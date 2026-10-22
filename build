@@ -1,0 +1,18 @@
+#!/bin/bash
+
+[ -d dist ] || mkdir dist
+cp index.html -t dist/
+cp styles.css script.js -t dist/
+cp -r assets/ -t dist/
+
+npx lightningcss-cli --minify --targets '>= 0.25%' dist/styles.css -o dist/styles.css
+npx terser dist/script.js -c -m -o dist/script.js
+npx html-minifier-terser dist/index.html \
+          --collapse-whitespace \
+          --remove-comments \
+          --remove-redundant-attributes \
+          --remove-empty-attributes \
+          --minify-css true \
+          --minify-js true \
+          -o dist/index.html
+
