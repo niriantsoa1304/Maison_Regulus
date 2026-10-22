@@ -154,81 +154,32 @@
   <section class="about" id="a-propos" aria-labelledby="about-title">
     <div class="about__inner">
 
-      <!-- Emblème maison décoré : astrolabe, toits en écho, lueur de Regulus, socle -->
-      <figure class="about__arch" data-reveal aria-hidden="true">
-        <svg class="arch" viewBox="0 0 480 600">
-          <defs>
-            <path id="spark" d="M12 0 L13.1 10.9 L24 12 L13.1 13.1 L12 24 L10.9 13.1 L0 12 L10.9 10.9 Z"/>
-            <linearGradient id="archFill" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#18203A"/>
-              <stop offset=".55" stop-color="#0F1424"/>
-              <stop offset="1" stop-color="#0B0F19"/>
-            </linearGradient>
-            <radialGradient id="archGlow" cx="240" cy="182" r="150" gradientUnits="userSpaceOnUse">
-              <stop offset="0" stop-color="#F3E4C4" stop-opacity=".32"/>
-              <stop offset=".4" stop-color="#C5A880" stop-opacity=".08"/>
-              <stop offset="1" stop-color="#C5A880" stop-opacity="0"/>
-            </radialGradient>
-            <radialGradient id="starHalo" cx="50%" cy="50%" r="50%">
-              <stop offset="0" stop-color="#FFF0D2" stop-opacity=".9"/>
-              <stop offset=".35" stop-color="#C5A880" stop-opacity=".3"/>
-              <stop offset="1" stop-color="#C5A880" stop-opacity="0"/>
-            </radialGradient>
-            <linearGradient id="plinth" x1="40" y1="0" x2="440" y2="0" gradientUnits="userSpaceOnUse">
-              <stop offset="0" stop-color="#C5A880" stop-opacity="0"/>
-              <stop offset=".5" stop-color="#C5A880" stop-opacity=".8"/>
-              <stop offset="1" stop-color="#C5A880" stop-opacity="0"/>
-            </linearGradient>
-          </defs>
-
-          <!-- Anneau d'astrolabe -->
-          <g class="arch__ring">
-            <circle cx="240" cy="280" r="214" fill="none" stroke="#C5A880" stroke-opacity=".18"/>
-            <circle cx="240" cy="280" r="198" fill="none" stroke="#C5A880" stroke-opacity=".35" stroke-width="7" pathLength="360" stroke-dasharray=".5 2.5"/>
-            <circle cx="240" cy="280" r="198" fill="none" stroke="#C5A880" stroke-opacity=".7" stroke-width="14" pathLength="360" stroke-dasharray="1 29"/>
-            <circle cx="240" cy="280" r="182" fill="none" stroke="#C5A880" stroke-opacity=".14"/>
-          </g>
-          <circle class="arch__orbit" cx="240" cy="280" r="230" fill="none" stroke="#C5A880" stroke-opacity=".3" stroke-dasharray="2 10"/>
-
-          <!-- Toits et murs en écho -->
-          <path class="draw" pathLength="1" d="M26 264 L240 30 L454 264" fill="none" stroke="#C5A880" stroke-opacity=".22"/>
-          <path class="draw" pathLength="1" d="M74 282 V526 H406 V282" fill="none" stroke="#C5A880" stroke-opacity=".22"/>
-          <path class="draw" pathLength="1" d="M48 256 L240 50 L432 256" fill="none" stroke="#C5A880" stroke-opacity=".45"/>
-          <path class="draw" pathLength="1" d="M90 274 V508 H390 V274" fill="none" stroke="#C5A880" stroke-opacity=".45"/>
-
-          <!-- Intérieur : toit et corps de la maison -->
-          <path d="M70 240 L240 70 L410 240 Z" fill="url(#archFill)"/>
-          <path d="M107.4 263.8 V491.6 H372.6 V263.8 Z" fill="url(#archFill)"/>
-          <path d="M70 240 L240 70 L410 240 Z" fill="url(#archGlow)"/>
-          <path d="M107.4 263.8 V491.6 H372.6 V263.8 Z" fill="url(#archGlow)"/>
-
-          <!-- Emblème (géométrie du logo, agrandie) -->
-          <g transform="translate(70 53) scale(1.7)" stroke-linejoin="miter" stroke-linecap="square">
-            <path class="draw" pathLength="1" d="M0 110 L100 10 L200 110" fill="none" stroke="#C5A880" stroke-width="1.4"/>
-            <path class="draw" pathLength="1" d="M30 106 L100 36 L170 106" fill="none" stroke="#C5A880" stroke-width=".6" stroke-opacity=".75"/>
-            <path class="draw" pathLength="1" d="M22 124 V258 H178 V124" fill="none" stroke="#C5A880" stroke-width="1.4"/>
-            <path class="draw" pathLength="1" d="M34 134 V246 H166 V134" fill="none" stroke="#C5A880" stroke-width=".6" stroke-opacity=".75"/>
-            <path class="arch__r" d="M93.07 187.34 102.45 184.4Q114.35 201.9 122.47 211.7Q130.59 221.5 136.82 225.91Q143.05 230.32 148.93 230.32Q149.35000000000002 230.32 149.35000000000002 231.16Q149.35000000000002 232.0 148.93 232.0H128.91000000000003Q125.41000000000001 232.0 115.96000000000001 220.24Q106.51 208.48 93.07 187.34ZM119.39 162.27999999999997Q119.39 169.84 114.98 176.07Q110.57000000000001 182.3 103.29 185.87Q96.01 189.44 87.75 189.44Q84.81 189.44 80.89 189.16V220.66Q80.89 224.86 81.72999999999999 226.89Q82.57 228.92 84.88 229.62Q87.19 230.32 92.23 230.32Q92.65 230.32 92.65 231.16Q92.65 232.0 92.23 232.0Q87.89 232.0 85.37 231.86L75.28999999999999 231.72L65.49 231.86Q62.83 232.0 58.35 232.0Q57.93 232.0 57.93 231.16Q57.93 230.32 58.35 230.32Q63.39 230.32 65.77000000000001 229.62Q68.15 228.92 68.99000000000001 226.89Q69.83 224.86 69.83 220.66V155.83999999999997Q69.83 151.64 68.99000000000001 149.68Q68.15 147.72 65.84 146.95Q63.53 146.18 58.489999999999995 146.18Q58.21 146.18 58.21 145.34Q58.21 144.5 58.489999999999995 144.5L65.49 144.64Q71.65 144.92 75.28999999999999 144.92Q78.23 144.92 80.89 144.77999999999997Q83.55 144.64 85.50999999999999 144.5Q90.83000000000001 144.07999999999998 95.17 144.07999999999998Q106.79 144.07999999999998 113.09 148.98Q119.39 153.88 119.39 162.27999999999997ZM90.83000000000001 146.45999999999998Q85.37 146.45999999999998 83.13 148.48999999999998Q80.89 150.51999999999998 80.89 156.12V185.66Q84.95 186.07999999999998 89.15 186.07999999999998Q99.23 186.07999999999998 103.57 181.39Q107.91 176.7 107.91 166.76Q107.91 155.56 103.57 151.01Q99.23 146.45999999999998 90.83000000000001 146.45999999999998Z" fill="#C5A880"/>
-          </g>
-
-          <!-- Regulus sous le toit -->
-          <g class="arch__star">
-            <circle cx="240" cy="182" r="34" fill="url(#starHalo)"/>
-            <use href="#spark" x="226" y="168" width="28" height="28" fill="#FFF4DD"/>
-          </g>
-
-          <!-- Étincelles autour -->
-          <use class="arch__spark" href="#spark" x="30" y="110" width="14" height="14" fill="#E9D7B4"/>
-          <use class="arch__spark" href="#spark" x="440" y="150" width="10" height="10" fill="#E9D7B4" style="--d:1.4s"/>
-          <use class="arch__spark" href="#spark" x="20" y="400" width="9" height="9" fill="#E9D7B4" style="--d:2.2s"/>
-          <use class="arch__spark" href="#spark" x="450" y="430" width="13" height="13" fill="#E9D7B4" style="--d:.7s"/>
-
-          <!-- Socle -->
-          <line class="draw" pathLength="1" x1="40" y1="548" x2="440" y2="548" stroke="url(#plinth)"/>
-          <line x1="110" y1="556" x2="370" y2="556" stroke="url(#plinth)" stroke-opacity=".5"/>
-          <use href="#spark" x="233" y="541" width="14" height="14" fill="#C5A880"/>
-          <text x="240" y="588" text-anchor="middle" class="arch__label">α  LEONIS</text>
-        </svg>
+      <!-- Logo animé : l'emblème se dessine, puis flotte doucement entouré d'étincelles -->
+      <figure class="about__arch about__logo" data-reveal aria-hidden="true">
+        <div class="logo-anim">
+          <span class="logo-anim__glow"></span>
+          <svg class="logo-anim__spark" viewBox="0 0 24 24" style="--x:6%; --y:62%; --s:10px; --d:0s; --t:5.5s"><path d="M12 0 L13.1 10.9 L24 12 L13.1 13.1 L12 24 L10.9 13.1 L0 12 L10.9 10.9 Z"/></svg>
+          <svg class="logo-anim__spark" viewBox="0 0 24 24" style="--x:92%; --y:48%; --s:12px; --d:1.6s; --t:6.2s"><path d="M12 0 L13.1 10.9 L24 12 L13.1 13.1 L12 24 L10.9 13.1 L0 12 L10.9 10.9 Z"/></svg>
+          <svg class="logo-anim__spark" viewBox="0 0 24 24" style="--x:18%; --y:20%; --s:8px; --d:3.1s; --t:5s"><path d="M12 0 L13.1 10.9 L24 12 L13.1 13.1 L12 24 L10.9 13.1 L0 12 L10.9 10.9 Z"/></svg>
+          <svg class="logo-anim__spark" viewBox="0 0 24 24" style="--x:84%; --y:82%; --s:9px; --d:2.3s; --t:5.8s"><path d="M12 0 L13.1 10.9 L24 12 L13.1 13.1 L12 24 L10.9 13.1 L0 12 L10.9 10.9 Z"/></svg>
+          <svg class="logo-anim__spark" viewBox="0 0 24 24" style="--x:50%; --y:-6%; --s:7px; --d:4s; --t:6.6s"><path d="M12 0 L13.1 10.9 L24 12 L13.1 13.1 L12 24 L10.9 13.1 L0 12 L10.9 10.9 Z"/></svg>
+          <svg class="logo-anim__spark" viewBox="0 0 24 24" style="--x:2%; --y:30%; --s:7px; --d:4.8s; --t:5.2s"><path d="M12 0 L13.1 10.9 L24 12 L13.1 13.1 L12 24 L10.9 13.1 L0 12 L10.9 10.9 Z"/></svg>
+          <svg class="logo-anim__emblem" viewBox="-6 2 212 262">
+            <g fill="none" stroke="#C5A880" stroke-linejoin="miter" stroke-linecap="square">
+              <path class="draw draw--roof" pathLength="1" d="M0 110 L100 10 L200 110" stroke-width="3"/>
+              <path class="draw draw--roof-in" pathLength="1" d="M30 106 L100 36 L170 106" stroke-width="1.2" stroke-opacity=".75"/>
+              <path class="draw draw--wall" pathLength="1" d="M22 124 V258 H178 V124" stroke-width="3"/>
+              <path class="draw draw--wall-in" pathLength="1" d="M34 134 V246 H166 V134" stroke-width="1.2" stroke-opacity=".75"/>
+            </g>
+            <g class="logo-anim__star"><path d="M100 61 L101.95 74.05 L115 76 L101.95 77.95 L100 91 L98.05 77.95 L85 76 L98.05 74.05 Z" fill="#F4E6C8"/></g>
+            <path class="logo-anim__r" d="M93.07 187.34 102.45 184.4Q114.35 201.9 122.47 211.7Q130.59 221.5 136.82 225.91Q143.05 230.32 148.93 230.32Q149.35000000000002 230.32 149.35000000000002 231.16Q149.35000000000002 232.0 148.93 232.0H128.91000000000003Q125.41000000000001 232.0 115.96000000000001 220.24Q106.51 208.48 93.07 187.34ZM119.39 162.27999999999997Q119.39 169.84 114.98 176.07Q110.57000000000001 182.3 103.29 185.87Q96.01 189.44 87.75 189.44Q84.81 189.44 80.89 189.16V220.66Q80.89 224.86 81.72999999999999 226.89Q82.57 228.92 84.88 229.62Q87.19 230.32 92.23 230.32Q92.65 230.32 92.65 231.16Q92.65 232.0 92.23 232.0Q87.89 232.0 85.37 231.86L75.28999999999999 231.72L65.49 231.86Q62.83 232.0 58.35 232.0Q57.93 232.0 57.93 231.16Q57.93 230.32 58.35 230.32Q63.39 230.32 65.77000000000001 229.62Q68.15 228.92 68.99000000000001 226.89Q69.83 224.86 69.83 220.66V155.83999999999997Q69.83 151.64 68.99000000000001 149.68Q68.15 147.72 65.84 146.95Q63.53 146.18 58.489999999999995 146.18Q58.21 146.18 58.21 145.34Q58.21 144.5 58.489999999999995 144.5L65.49 144.64Q71.65 144.92 75.28999999999999 144.92Q78.23 144.92 80.89 144.77999999999997Q83.55 144.64 85.50999999999999 144.5Q90.83000000000001 144.07999999999998 95.17 144.07999999999998Q106.79 144.07999999999998 113.09 148.98Q119.39 153.88 119.39 162.27999999999997ZM90.83000000000001 146.45999999999998Q85.37 146.45999999999998 83.13 148.48999999999998Q80.89 150.51999999999998 80.89 156.12V185.66Q84.95 186.07999999999998 89.15 186.07999999999998Q99.23 186.07999999999998 103.57 181.39Q107.91 176.7 107.91 166.76Q107.91 155.56 103.57 151.01Q99.23 146.45999999999998 90.83000000000001 146.45999999999998Z" fill="#C5A880"/>
+          </svg>
+        </div>
+        <div class="logo-anim__word">
+          <span class="logo-anim__maison">Maison</span>
+          <span class="logo-anim__name">Regulus</span>
+          <span class="logo-anim__sub"><span class="rule"></span><span data-i18n="hero.sub">Portfolios &amp; sites web</span><span class="rule"></span></span>
+        </div>
       </figure>
 
       <!-- Texte -->

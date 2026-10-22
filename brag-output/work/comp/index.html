@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Maison Regulus — brag</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=block" rel="stylesheet">
+<style>
+  :root { --night:#0B0F19; --gold:#C5A880; --ivory:#F4F4F0; --pale:#E9D7B4; --glow:#FFF4DD; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body { width:1920px; height:1080px; overflow:hidden; background:var(--night); }
+  body { font-family:Inter, sans-serif; color:var(--ivory); -webkit-font-smoothing:antialiased; }
+  #stage { position:relative; width:1920px; height:1080px; overflow:hidden;
+    background:radial-gradient(1200px 700px at 60% 35%, #141B33 0%, #0B0F19 70%); }
+  .layer { position:absolute; inset:0; }
+  .serif { font-family:'Cormorant Garamond', serif; }
+
+  /* sky camera (scenes 1–2) */
+  #sky { position:absolute; left:0; top:0; width:1440px; height:900px; transform-origin:0 0; }
+  #sky svg { width:1440px; height:900px; display:block; }
+  #flare { position:absolute; left:0; top:0; width:0; height:0; }
+  #flare .halo { position:absolute; border-radius:50%;
+    background:radial-gradient(circle, rgba(255,240,210,.75) 0%, rgba(197,168,128,.28) 32%, rgba(197,168,128,0) 70%); }
+  #flare svg { position:absolute; filter:drop-shadow(0 0 8px rgba(255,236,200,.95)); }
+
+  /* faint backdrop sky (scenes 3–6) */
+  #back { opacity:0; }
+  #back svg { position:absolute; left:50%; top:50%; width:2100px; height:1312px; }
+
+  /* scene 1 caption */
+  #s1cap { position:absolute; left:160px; bottom:120px; }
+  #s1cap .lab { font-size:17px; letter-spacing:.42em; color:var(--gold); font-weight:500; }
+  #s1cap .line { font-family:'Cormorant Garamond'; font-size:64px; line-height:1.1; margin-top:14px; color:var(--ivory); }
+  #s1cap .line i { color:var(--pale); }
+
+  /* scene 2 hero */
+  #s2 { display:flex; flex-direction:column; align-items:center; padding-top:96px; }
+  #emblem { width:250px; height:324px; overflow:visible; }
+  .w-maison { font-family:'Cormorant Garamond'; font-weight:500; font-size:44px; letter-spacing:.62em; color:var(--gold); margin:30px 0 0 .62em; }
+  .w-regulus { font-family:'Cormorant Garamond'; font-weight:400; font-size:168px; line-height:1; letter-spacing:.12em; margin:6px 0 0 .12em; }
+  .w-sub { display:flex; align-items:center; gap:26px; margin-top:22px; font-size:21px; font-weight:500; letter-spacing:.42em; color:var(--gold); }
+  .w-sub .rule { width:150px; height:1px; background:linear-gradient(90deg, transparent, var(--gold)); }
+  .w-sub .rule.r { background:linear-gradient(90deg, var(--gold), transparent); }
+  .w-tag { font-family:'Cormorant Garamond'; font-style:italic; font-size:62px; color:var(--gold); margin-top:30px; }
+
+  /* browser chrome */
+  .win { position:absolute; border:1px solid rgba(197,168,128,.35); border-radius:12px; overflow:hidden; background:#0E1322;
+    box-shadow:0 40px 120px rgba(0,0,0,.6), 0 0 0 1px rgba(0,0,0,.4), 0 0 80px rgba(197,168,128,.08); }
+  .bar { height:44px; display:flex; align-items:center; padding:0 18px; background:#121829; border-bottom:1px solid rgba(197,168,128,.18); position:relative; }
+  .dots i { display:inline-block; width:11px; height:11px; border-radius:50%; border:1px solid rgba(197,168,128,.55); margin-right:8px; }
+  .url { position:absolute; left:50%; transform:translateX(-50%); width:420px; height:28px; border-radius:14px; background:#0B0F19;
+    display:flex; align-items:center; justify-content:center; font-size:14px; letter-spacing:.04em; color:rgba(244,244,240,.75); }
+  .url b { color:var(--gold); font-weight:500; margin-right:8px; font-size:12px; }
+  .view { position:relative; overflow:hidden; }
+  .view iframe { position:absolute; left:0; top:0; border:0; transform-origin:0 0; }
+
+  /* scene 4 */
+  #s4 .eyebrow { position:absolute; left:160px; top:110px; display:flex; align-items:center; gap:16px; font-size:17px; letter-spacing:.38em; color:var(--gold); font-weight:500; }
+  #s4 .eyebrow .rule { width:48px; height:1px; background:var(--gold); }
+  #s4 h2 { position:absolute; left:160px; top:146px; font-family:'Cormorant Garamond'; font-weight:400; font-size:76px; line-height:1.1; white-space:nowrap; }
+  #s4 .desk { left:160px; top:330px; width:1000px; }
+  #s4 .desk img { display:block; width:1000px; height:518px; object-fit:cover; object-position:top; }
+  #s4 .phone { position:absolute; left:1060px; top:470px; width:230px; height:470px; border-radius:30px; border:2px solid rgba(197,168,128,.55);
+    background:#0B0F19; padding:7px; box-shadow:0 30px 90px rgba(0,0,0,.65); }
+  #s4 .phone img { width:100%; height:100%; object-fit:cover; object-position:top; border-radius:23px; display:block; }
+  #s4 .info { position:absolute; left:1370px; top:350px; width:420px; }
+  #s4 .meta { display:flex; align-items:center; gap:14px; font-size:16px; letter-spacing:.3em; color:var(--gold); font-weight:500; }
+  #s4 .meta .num { font-family:'Cormorant Garamond'; font-size:26px; letter-spacing:0; }
+  #s4 .live { color:var(--ivory); letter-spacing:.2em; font-size:14px; display:flex; align-items:center; gap:8px; }
+  #s4 .live i { width:8px; height:8px; border-radius:50%; background:#6FCF8E; box-shadow:0 0 10px #6FCF8E; }
+  #s4 .name { font-family:'Cormorant Garamond'; font-size:52px; line-height:1.08; margin-top:20px; }
+  #s4 .role { font-family:'Cormorant Garamond'; font-style:italic; font-size:27px; color:var(--gold); margin-top:12px; }
+  #s4 .tags { display:flex; flex-wrap:wrap; gap:10px; margin-top:30px; }
+  #s4 .tags span { font-size:16px; padding:9px 16px; border:1px solid rgba(197,168,128,.45); border-radius:999px; color:rgba(244,244,240,.9); }
+
+  /* scene 6 */
+  #s6 { display:flex; flex-direction:column; align-items:center; justify-content:center;
+    background:radial-gradient(900px 520px at 50% 52%, rgba(11,15,25,.85) 0%, rgba(11,15,25,.6) 45%, rgba(11,15,25,0) 75%); }
+  #emblem2 { width:150px; height:194px; overflow:visible; }
+  #s6 .big { font-family:'Cormorant Garamond'; font-size:92px; line-height:1.1; margin-top:44px; text-align:center; }
+  #s6 .big i { color:var(--gold); }
+  #s6 .site { margin-top:40px; font-size:24px; letter-spacing:.36em; color:var(--gold); font-weight:500; display:flex; align-items:center; gap:26px; }
+  #s6 .site .rule { width:110px; height:1px; background:linear-gradient(90deg, transparent, var(--gold)); }
+  #s6 .site .rule.r { background:linear-gradient(90deg, var(--gold), transparent); }
+  #s6 .offers { margin-top:22px; font-size:17px; letter-spacing:.3em; color:rgba(244,244,240,.7); }
+
+  /* the site's own cursor: glowing dot + gold ring */
+  #cursor { position:absolute; left:0; top:0; width:0; height:0; z-index:50; }
+  #cursor .ring { position:absolute; width:36px; height:36px; margin:-18px 0 0 -18px; border-radius:50%;
+    border:1px solid rgba(197,168,128,.85); box-shadow:0 0 14px rgba(197,168,128,.4), inset 0 0 10px rgba(197,168,128,.2); }
+  #cursor .dot { position:absolute; width:7px; height:7px; margin:-3.5px 0 0 -3.5px; border-radius:50%; background:#FFF4DD;
+    box-shadow:0 0 8px 2px rgba(255,236,200,.85), 0 0 18px 4px rgba(197,168,128,.45); }
+  #cursor .ripple { position:absolute; width:36px; height:36px; margin:-18px 0 0 -18px; border-radius:50%; border:1.5px solid var(--pale); }
+
+  #vignette { position:absolute; inset:0; pointer-events:none; z-index:60;
+    background:radial-gradient(ellipse at center, rgba(11,15,25,0) 55%, rgba(5,7,12,.55) 100%); }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="layer" id="back"></div>
+
+  <div class="layer" id="s1">
+    <div id="sky"></div>
+    <div id="s1cap"><p class="lab">REGULUS · α LEONIS</p><p class="line">L’étoile la plus brillante <i>du Lion.</i></p></div>
+  </div>
+
+  <div class="layer" id="s2">
+    <svg id="emblem" viewBox="-4 4 208 258">
+      <g stroke-linejoin="miter" stroke-linecap="square" fill="none" stroke="#C5A880">
+        <path class="d" pathLength="1" d="M0 110 L100 10 L200 110" stroke-width="3"/>
+        <path class="d" pathLength="1" d="M30 106 L100 36 L170 106" stroke-width="1.2" opacity=".75"/>
+        <path class="d" pathLength="1" d="M22 124 V258 H178 V124" stroke-width="3"/>
+        <path class="d" pathLength="1" d="M34 134 V246 H166 V134" stroke-width="1.2" opacity=".75"/>
+      </g>
+      <path id="emStar" d="M100 61 L101.95 74.05 L115 76 L101.95 77.95 L100 91 L98.05 77.95 L85 76 L98.05 74.05 Z" fill="#C5A880"/>
+      <path class="R" fill="#C5A880"/>
+    </svg>
+    <p class="w-maison">MAISON</p>
+    <p class="w-regulus">REGULUS</p>
+    <p class="w-sub"><span class="rule"></span><span>PORTFOLIOS &amp; SITES WEB</span><span class="rule r"></span></p>
+    <p class="w-tag">Beyond what’s possible.</p>
+  </div>
+
+  <div class="layer" id="s3">
+    <div class="win" id="win3">
+      <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="url"><b>⌂</b>regulus-studio.tech</span></div>
+      <div class="view" id="view3"><iframe id="f1" src="/index.html" width="1920" height="1180" scrolling="no"></iframe></div>
+    </div>
+  </div>
+
+  <div class="layer" id="s4">
+    <p class="eyebrow"><span class="rule"></span>RÉALISATIONS</p>
+    <h2>Les premières étoiles de notre constellation.</h2>
+    <div class="win desk">
+      <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">niriantsoa.me</span></div>
+      <img src="/assets/realisations/niriantsoa-desktop.webp" alt="">
+    </div>
+    <div class="phone"><img src="/assets/realisations/niriantsoa-mobile.webp" alt=""></div>
+    <div class="info">
+      <p class="meta"><span class="num">I</span>PORTFOLIO <span class="live"><i></i>EN LIGNE</span></p>
+      <p class="name">Niriantsoa Francia Raheriniaina</p>
+      <p class="role">Astronome · Enseignante · Entrepreneure</p>
+      <div class="tags"><span>Bilingue FR / EN</span><span>Projets filtrables</span><span>CV téléchargeable</span><span>Écran d’accueil animé</span><span>Musique d’ambiance</span></div>
+    </div>
+  </div>
+
+  <div class="layer" id="s5">
+    <div class="view" id="view5" style="position:absolute;inset:0"><iframe id="f2" src="/index.html" width="1920" height="1080" scrolling="no"></iframe></div>
+  </div>
+
+  <div class="layer" id="s6">
+    <svg id="emblem2" viewBox="-4 4 208 258"></svg>
+    <p class="big">Votre projet sera<br>la <i>prochaine étoile.</i></p>
+    <p class="site"><span class="rule"></span>REGULUS-STUDIO.TECH<span class="rule r"></span></p>
+    <p class="offers">PORTFOLIOS · SITES VITRINES</p>
+  </div>
+
+  <div id="cursor"><div class="ripple"></div><div class="ring"></div><div class="dot"></div></div>
+  <div id="vignette"></div>
+</div>
+
+<script>
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const lerp = (a, b, k) => a + (b - a) * k;
+const prog = (t, a, b) => clamp((t - a) / (b - a));
+const eOut = k => 1 - Math.pow(1 - k, 3);
+const eIO = k => k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+const eExpo = k => k === 1 ? 1 : 1 - Math.pow(2, -10 * k);
+// envelope: fade in over [a, a+fi], out over [b-fo, b]
+const env = (t, a, b, fi = .4, fo = .4) => Math.min(eOut(prog(t, a, a + fi)), 1 - eIO(prog(t, b - fo, b)));
+
+const REG = { x: 1079.7, y: 611.1 };
+const T = { s1: [0, 3.6], s2: [3.4, 7.55], s3: [7.4, 11.5], s4: [11.45, 14.9], s5: [14.85, 18.85], s6: [18.8, 22] };
+window.DURATION = 22;
+
+let sky, skyLines, skyStars, skyMinor, backSvg, f1, f2, d1, d2, emStarScreen;
+
+async function setup() {
+  const svgText = await (await fetch('/assets/sky.svg')).text();
+  $('#sky').innerHTML = svgText;
+  sky = $('#sky svg');
+  sky.setAttribute('viewBox', '0 0 1440 900');
+  skyLines = $$('line', sky);
+  skyLines.forEach(l => { l.setAttribute('pathLength', 1); l.style.strokeDasharray = 1; l.setAttribute('stroke-opacity', '.75'); l.setAttribute('stroke-width', '1.3'); });
+  const circles = $$('circle', sky);
+  skyStars = circles.filter(c => +c.getAttribute('r') > 1.5 && Math.hypot(c.getAttribute('cx') - REG.x, c.getAttribute('cy') - REG.y) > 1);
+  skyMinor = circles.filter(c => +c.getAttribute('r') <= 1.5);
+  // Regulus itself is rendered by the flare element instead
+  circles.filter(c => Math.hypot(c.getAttribute('cx') - REG.x, c.getAttribute('cy') - REG.y) < 1).forEach(c => c.remove());
+  $$('path', sky).forEach(p => p.remove());
+  const fl = document.createElement('div'); fl.id = 'flare';
+  fl.innerHTML = '<div class="halo"></div><svg viewBox="0 0 24 24"><path d="M12 0 L13.1 10.9 L24 12 L13.1 13.1 L12 24 L10.9 13.1 L0 12 L10.9 10.9 Z" fill="#FFF4DD"/></svg>';
+  $('#s1').appendChild(fl);
+
+  $('#back').innerHTML = svgText;
+  backSvg = $('#back svg');
+  backSvg.setAttribute('viewBox', '0 0 1440 900');
+
+  // the emblem's serif R comes from the brand file
+  const em = await (await fetch('/assets/emblem-gold.svg')).text();
+  const rD = [...em.matchAll(/<path d="([^"]+)"/g)].map(m => m[1]).find(d => d.includes('Q'));
+  $('#emblem .R').setAttribute('d', rD);
+  $('#emblem2').innerHTML = $('#emblem').innerHTML;
+
+  f1 = $('#f1'); f2 = $('#f2');
+  await Promise.all([f1, f2].map(f => new Promise(r => f.contentDocument && f.contentDocument.readyState === 'complete' ? r() : f.addEventListener('load', r, { once: true }))));
+  for (const f of [f1, f2]) {
+    const d = f.contentDocument;
+    d.documentElement.classList.remove('has-reveal');
+    const st = d.createElement('style');
+    st.textContent = `*,*::before,*::after{animation:none!important;transition:none!important}
+      html{scroll-behavior:auto!important}
+      .cursor,.contact-fab,.to-top{display:none!important}
+      .letter__constellation .draw{stroke-dasharray:1;stroke-dashoffset:var(--dd,0)}`;
+    d.head.appendChild(st);
+    await d.fonts.ready;
+    await Promise.all([...d.images].map(i => (i.loading = 'eager', i.decode().catch(() => {}))));
+  }
+  d1 = f1.contentDocument; d2 = f2.contentDocument;
+  // scene 5 base scroll: center the letter
+  const lt = d2.querySelector('.letter').getBoundingClientRect().top + f2.contentWindow.scrollY;
+  window.S5Y = Math.round(lt - (1080 - 828) / 2 + 10);
+  window.S3Y = Math.round(d1.querySelector('.services__head').getBoundingClientRect().top + f1.contentWindow.scrollY - 110);
+  await document.fonts.ready;
+  await Promise.all($$('img').map(i => i.decode().catch(() => {})));
+}
+
+function show(el, o) { el.style.opacity = o; el.style.visibility = o <= 0.001 ? 'hidden' : 'visible'; }
+
+let cursorState = { x: 0, y: 0, o: 0, hover: 0, down: 0, ripple: -1 };
+function drawCursor(c) {
+  const el = $('#cursor');
+  el.style.transform = `translate(${c.x}px, ${c.y}px)`;
+  show(el, c.o);
+  $('.ring', el).style.transform = `scale(${1 + .6 * c.hover - .3 * c.down})`;
+  $('.ring', el).style.background = `rgba(197,168,128,${.1 * c.hover})`;
+  $('.dot', el).style.transform = `scale(${1 - .4 * c.hover})`;
+  const r = $('.ripple', el);
+  if (c.ripple >= 0 && c.ripple <= 1) { r.style.opacity = 1 - c.ripple; r.style.transform = `scale(${1 + 2.2 * eOut(c.ripple)})`; }
+  else r.style.opacity = 0;
+}
+// smooth path between waypoints [{t,x,y}]
+function pathAt(t, pts) {
+  if (t <= pts[0].t) return pts[0];
+  for (let i = 1; i < pts.length; i++) if (t <= pts[i].t) {
+    const k = eIO(prog(t, pts[i - 1].t, pts[i].t));
+    return { x: lerp(pts[i - 1].x, pts[i].x, k), y: lerp(pts[i - 1].y, pts[i].y, k) };
+  }
+  return pts[pts.length - 1];
+}
+const typed = (t, a, b, s) => s.slice(0, Math.round(s.length * prog(t, a, b)));
+
+function render(t) {
+  const c = { x: 960, y: 540, o: 0, hover: 0, down: 0, ripple: -1 };
+
+  /* ---------- scenes 1–2: sky camera dives into Regulus ---------- */
+  const s1o = 1 - prog(t, 3.9, 4.5);
+  show($('#s1'), s1o);
+  if (s1o > 0) {
+    const emStar = $('#emStar').getBoundingClientRect();
+    const target = { x: emStar.left + emStar.width / 2, y: emStar.top + emStar.height / 2 };
+    const start = { x: 1402, y: 868 };
+    const z = eIO(prog(t, 3.35, 4.35));
+    const s = 1.25 * Math.pow(14 / 1.25, z) * (1 + .03 * prog(t, 0, 3.4));
+    const R = { x: lerp(start.x, target.x, eOut(z)), y: lerp(start.y, target.y, eOut(z)) };
+    sky.parentElement.style.transform = `translate(${R.x}px, ${R.y}px) scale(${s}) translate(${-REG.x}px, ${-REG.y}px)`;
+    sky.style.opacity = 1 - prog(t, 3.6, 4.15);
+    skyMinor.forEach((m, i) => m.style.opacity = prog(t, (i % 9) * .06, (i % 9) * .06 + .7));
+    skyStars.forEach((m, i) => m.style.opacity = prog(t, .1 + i * .07, .5 + i * .07));
+    skyLines.forEach((l, i) => l.style.strokeDashoffset = 1 - eIO(prog(t, .25 + i * .17, .75 + i * .17)));
+    // Regulus flare
+    const fl = $('#flare');
+    fl.style.transform = `translate(${R.x}px, ${R.y}px)`;
+    const ign = eOut(prog(t, 1.5, 2.3));
+    const pulse = 1 + .06 * Math.sin(t * 3.1);
+    const size = lerp(14, 46, ign) * pulse * lerp(1, .72, z);
+    const fsvg = $('svg', fl);
+    fsvg.style.width = fsvg.style.height = size + 'px';
+    fsvg.style.left = fsvg.style.top = -size / 2 + 'px';
+    fsvg.style.transform = `rotate(${45 * eIO(prog(t, 3.4, 4.3))}deg)`;
+    const hs = lerp(40, 190, ign) * pulse * lerp(1, .9, z);
+    const h = $('.halo', fl); h.style.width = h.style.height = hs + 'px'; h.style.left = h.style.top = -hs / 2 + 'px';
+    fl.style.opacity = lerp(.55, 1, ign) * (1 - prog(t, 4.25, 4.5));
+    show($('#s1cap'), env(t, 1.0, 3.45, .55, .35));
+    $('#s1cap').style.transform = `translateY(${18 * (1 - eOut(prog(t, 1.0, 1.7)))}px)`;
+  }
+
+  const s2o = env(t, 3.9, 7.55, .3, .35);
+  show($('#s2'), s2o);
+  if (s2o > 0) {
+    $$('#emblem .d').forEach((p, i) => p.style.strokeDashoffset = 1 - eIO(prog(t, 3.95 + i * .14, 4.85 + i * .14)));
+    $('#emblem .R').style.opacity = eOut(prog(t, 4.7, 5.2));
+    $('#emStar').style.opacity = prog(t, 4.25, 4.45);
+    const items = ['.w-maison', '.w-regulus', '.w-sub', '.w-tag'], at = [4.85, 5.0, 5.3, 5.6];
+    items.forEach((s, i) => {
+      const k = eOut(prog(t, at[i], at[i] + .7));
+      const el = $(s, $('#s2'));
+      el.style.opacity = k;
+      el.style.transform = `translateY(${16 * (1 - k)}px)`;
+    });
+    $('.w-regulus').style.letterSpacing = `${lerp(.32, .12, eOut(prog(t, 5.0, 6.0)))}em`;
+    $('#s2').style.transform = `scale(${1 + .02 * prog(t, 4.5, 7.5)})`;
+  }
+
+  /* ---------- backdrop sky for the rest ---------- */
+  const bo = .45 * prog(t, 7.2, 8.0);
+  show($('#back'), bo);
+  if (bo > 0) {
+    backSvg.style.transform = `translate(-50%, -50%) translate(${-60 + 30 * prog(t, 7, 22)}px, ${10 - 20 * prog(t, 7, 22)}px)`;
+    // brighten the backdrop for the finale
+    $('#back').style.opacity = bo + .2 * prog(t, 18.8, 19.6);
+  }
+
+  /* ---------- scene 3: the real site, offers → services ---------- */
+  const s3o = env(t, T.s3[0], T.s3[1], .5, .4);
+  show($('#s3'), s3o);
+  if (s3o > 0) {
+    const W = 1340, sc = W / 1920, H = 1180 * sc;
+    const win = $('#win3');
+    const rise = eOut(prog(t, 7.4, 8.2));
+    const L = (1920 - W) / 2, Tp = (1080 - H - 44) / 2;
+    win.style.left = L + 'px'; win.style.top = Tp + 'px'; win.style.width = W + 'px';
+    $('#view3').style.height = H + 'px';
+    f1.style.transform = `scale(${sc})`;
+    const exit = eIO(prog(t, 11.1, 11.5));
+    win.style.transform = `perspective(2200px) translateY(${90 * (1 - rise) - 40 * exit}px) rotateX(${10 * (1 - rise)}deg) scale(${lerp(.94, 1, rise) * lerp(1, .97, exit)})`;
+    // click the "Portfolios" offer, page scrolls to the services
+    const sy = window.S3Y * eIO(prog(t, 8.75, 9.75));
+    f1.contentWindow.scrollTo(0, sy);
+    const offer = d1.querySelector('.offer');
+    const ob = offer.getBoundingClientRect();
+    const toScreen = (x, y) => ({ x: L + x * sc, y: Tp + 44 + y * sc });
+    const ot = toScreen(ob.left + 150, ob.top + ob.height / 2);
+    const p = pathAt(t, [{ t: 7.85, x: 1180, y: 760 }, { t: 8.45, x: ot.x, y: ot.y }]);
+    c.x = p.x; c.y = p.y;
+    c.o = env(t, 7.85, 9.0, .25, .3);
+    c.hover = prog(t, 8.3, 8.45);
+    c.down = prog(t, 8.5, 8.58) * (1 - prog(t, 8.62, 8.75));
+    c.ripple = prog(t, 8.55, 9.1) || -1;
+    offer.style.background = `rgba(197,168,128,${.12 * c.hover * (1 - prog(t, 8.9, 9.2))})`;
+    // cards reveal as they scroll in, art draws itself
+    d1.querySelectorAll('.services__head [data-reveal]').forEach((el, i) => {
+      const k = eOut(prog(t, 9.15 + i * .1, 9.85 + i * .1));
+      el.style.opacity = k; el.style.transform = `translateY(${24 * (1 - k)}px)`;
+    });
+    d1.querySelectorAll('.service').forEach((el, i) => {
+      const k = eOut(prog(t, 9.4 + i * .15, 10.2 + i * .15));
+      el.style.opacity = k; el.style.transform = `translateY(${40 * (1 - k)}px)`;
+      el.querySelectorAll('.draw').forEach(dp => { dp.style.strokeDasharray = 1; dp.style.strokeDashoffset = 1 - eIO(prog(t, 9.6 + i * .15, 10.9 + i * .15)); });
+    });
+  }
+
+  /* ---------- scene 4: first star of the constellation ---------- */
+  const s4o = env(t, T.s4[0], T.s4[1], .35, .35);
+  show($('#s4'), s4o);
+  if (s4o > 0) {
+    const a = T.s4[0];
+    const up = (sel, at, dy = 26, dur = .7) => { const k = eOut(prog(t, at, at + dur)); const el = $(sel, $('#s4')); el.style.opacity = k; el.style.transform = `translateY(${dy * (1 - k)}px)`; return k; };
+    up('.eyebrow', a + .05);
+    up('h2', a + .12, 30, .8);
+    const kd = eOut(prog(t, a + .3, a + 1.1));
+    const desk = $('.desk', $('#s4'));
+    desk.style.opacity = kd; desk.style.transform = `translateX(${-60 * (1 - kd)}px) scale(${1 + .015 * prog(t, a, a + 3.4)})`;
+    up('.phone', a + .6, 80, .9);
+    up('.meta', a + .75); up('.name', a + .85); up('.role', a + .95);
+    $$('.tags span', $('#s4')).forEach((el, i) => { const k = eOut(prog(t, a + 1.2 + i * .13, a + 1.6 + i * .13)); el.style.opacity = k; el.style.transform = `scale(${lerp(.85, 1, k)})`; });
+    $('#s4').style.transform = `translateY(${-24 * eIO(prog(t, T.s4[1] - .35, T.s4[1]))}px)`;
+  }
+
+  /* ---------- scene 5: write to the house ---------- */
+  const s5o = env(t, T.s5[0], T.s5[1], .4, .4);
+  show($('#s5'), s5o);
+  if (s5o > 0) {
+    f2.contentWindow.scrollTo(0, window.S5Y);
+    const z = 1 + .07 * eIO(prog(t, 14.85, 18.85));
+    const letter = d2.querySelector('.letter').getBoundingClientRect();
+    const ox = letter.left + letter.width / 2, oy = letter.top + letter.height / 2;
+    f2.style.transformOrigin = `${ox}px ${oy}px`;
+    f2.style.transform = `scale(${z})`;
+    const map = (x, y) => ({ x: ox + (x - ox) * z, y: oy + (y - oy) * z });
+    const ctr = sel => { const r = d2.querySelector(sel).getBoundingClientRect(); return map(r.left + r.width * .3, r.top + r.height * .6); };
+    const form = d2.querySelector('#contact-form'), done = d2.querySelector('.letter__done');
+    const sent = t >= 17.6;
+    const letterEl = d2.querySelector('.letter');
+    if (!window._lh) window._lh = letterEl.offsetHeight;
+    form.hidden = sent; done.hidden = !sent;
+    letterEl.style.minHeight = window._lh + 'px';
+    Object.assign(letterEl.style, sent ? { display: 'flex', flexDirection: 'column', justifyContent: 'center' } : { display: '', flexDirection: '', justifyContent: '' });
+    if (!sent) {
+      const name = d2.querySelector('#cf-name'), mail = d2.querySelector('#cf-email'), msg = d2.querySelector('#cf-message');
+      name.value = typed(t, 15.05, 15.5, 'Hery Rakoto');
+      mail.value = typed(t, 15.6, 16.0, 'hery@exemple.mg');
+      msg.value = typed(t, 16.4, 17.0, 'Un site vitrine pour ma boulangerie.');
+      d2.querySelectorAll('input[name="project_type"]')[t >= 16.25 ? 1 : 0].checked = true;
+      const focus = t < 15.55 ? name : t < 16.1 ? mail : t >= 16.35 && t < 17.1 ? msg : null;
+      if (focus) focus.focus({ preventScroll: true }); else d2.activeElement && d2.activeElement.blur();
+      form.classList.toggle('is-sending', t >= 17.35);
+      const btn = d2.querySelector('.letter__submit');
+      btn.style.transform = `scale(${1 - .04 * (prog(t, 17.3, 17.36) * (1 - prog(t, 17.42, 17.55)))})`;
+      const pts = [
+        { t: 14.85, ...ctr('#cf-name') }, { t: 15.5, ...ctr('#cf-name') },
+        { t: 15.6, ...ctr('#cf-email') }, { t: 16.0, ...ctr('#cf-email') },
+        { t: 16.2, ...ctr('.chip:nth-child(2)') }, { t: 16.3, ...ctr('.chip:nth-child(2)') },
+        { t: 16.42, ...ctr('#cf-message') }, { t: 17.0, ...ctr('#cf-message') },
+        { t: 17.28, ...ctr('.letter__submit') },
+      ];
+      window._s5pts = pts;
+    }
+    const pts = window._s5pts;
+    if (pts) {
+      const p = pathAt(t, pts); c.x = p.x; c.y = p.y;
+      c.o = env(t, 14.95, 17.75, .3, .25);
+      c.hover = Math.max(prog(t, 16.12, 16.2) * (1 - prog(t, 16.32, 16.4)), prog(t, 17.15, 17.27));
+      const press = (a) => prog(t, a, a + .06) * (1 - prog(t, a + .1, a + .2));
+      c.down = Math.max(press(16.22), press(17.3));
+      const r1 = prog(t, 16.24, 16.7), r2 = prog(t, 17.32, 17.8);
+      c.ripple = (t >= 16.24 && t < 16.7) ? r1 : (t >= 17.32 && t < 17.8) ? r2 : -1;
+    }
+    if (sent) {
+      d2.querySelectorAll('.letter__constellation .draw').forEach(dp => dp.style.setProperty('--dd', 1 - eIO(prog(t, 17.65, 18.4))));
+      const k = eOut(prog(t, 17.6, 18.1));
+      done.style.opacity = k; done.style.transform = `translateY(${14 * (1 - k)}px)`;
+    }
+  }
+
+  /* ---------- scene 6: the next star ---------- */
+  const s6o = env(t, T.s6[0], 30, .45, .4);
+  show($('#s6'), s6o);
+  if (s6o > 0) {
+    $$('#emblem2 .d').forEach((p, i) => p.style.strokeDashoffset = 1 - eIO(prog(t, 18.85 + i * .1, 19.6 + i * .1)));
+    $('#emblem2 .R').style.opacity = eOut(prog(t, 19.3, 19.7));
+    $('#emblem2 path:not(.d):not(.R)').style.opacity = eOut(prog(t, 19.5, 19.8));
+    const up = (sel, at) => { const k = eOut(prog(t, at, at + .8)); const el = $(sel, $('#s6')); el.style.opacity = k; el.style.transform = `translateY(${22 * (1 - k)}px)`; };
+    up('.big', 19.1); up('.site', 19.6); up('.offers', 19.85);
+    $('#s6').style.transform = `scale(${1.02 - .02 * eOut(prog(t, 18.8, 22))})`;
+  }
+
+  drawCursor(c);
+}
+
+window.ready = setup().then(() => { render(0); return true; });
+window.render = render;
+</script>
+</body>
+</html>
