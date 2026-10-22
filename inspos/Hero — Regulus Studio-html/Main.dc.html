@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Hero — Regulus Studio</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#C5A880}a:hover{color:#F4F4F0}
+.ul{position:relative;text-decoration:none;color:#F4F4F0;padding:6px 0}
+.ul::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:#C5A880;transform:scaleX(0);transform-origin:right;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.ul:hover{color:#C5A880}.ul:hover::after{transform:scaleX(1);transform-origin:left}
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:12px;text-decoration:none;border:1px solid #C5A880;color:#F4F4F0;transition:color .45s ease;z-index:0}
+.btn::before{content:"";position:absolute;inset:0;background:#C5A880;transform:translateY(101%);transition:transform .45s cubic-bezier(.2,.7,.2,1);z-index:-1}
+.btn:hover{color:#0B0F19}.btn:hover::before{transform:translateY(0)}
+.btn-solid{background:#C5A880;color:#0B0F19}.btn-solid::before{background:#F4F4F0}
+.offer{position:relative;text-decoration:none;color:#F4F4F0;overflow:hidden;z-index:0;transition:color .5s ease}
+.offer::before{content:"";position:absolute;inset:0;background:rgba(197,168,128,.08);transform:scaleY(0);transform-origin:bottom;transition:transform .6s cubic-bezier(.2,.7,.2,1);z-index:-1}
+.offer:hover::before{transform:scaleY(1)}
+.offer .arr{transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.offer:hover .arr{transform:translateX(10px)}
+.offer .ttl{transition:color .5s ease}
+.offer:hover .ttl{color:#C5A880}
+.seal{transition:transform 1.2s cubic-bezier(.2,.7,.2,1),filter 1.2s ease;filter:drop-shadow(0 0 18px rgba(197,168,128,.25))}
+.seal:hover{transform:translateY(-6px);filter:drop-shadow(0 0 30px rgba(197,168,128,.5))}
+.tw{position:absolute;width:3px;height:3px;border-radius:50%;background:#FFF7E6;box-shadow:0 0 8px 2px rgba(233,215,180,.7);animation:tw 3.6s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.15;transform:scale(.6)}50%{opacity:1;transform:scale(1.3)}}
+.sky{animation:drift 60s ease-in-out infinite alternate}
+@keyframes drift{from{transform:scale(1)}to{transform:scale(1.04) translate(-8px,-4px)}}
+.reg-star{transform-origin:center;animation:regTw 3.2s ease-in-out infinite;filter:drop-shadow(0 0 6px rgba(255,236,200,.9))}
+.reg-star2{transform-origin:center;transform:rotate(45deg);animation:regTw2 3.2s ease-in-out infinite}
+.reg-halo{animation:regHalo 3.2s ease-in-out infinite}
+@keyframes regTw{0%,100%{opacity:.8;transform:scale(.82)}18%{opacity:1;transform:scale(1.18)}32%{opacity:.85;transform:scale(.95)}48%{opacity:1;transform:scale(1.3)}70%{opacity:.9;transform:scale(1)}}
+@keyframes regTw2{0%,100%{opacity:.2;transform:rotate(45deg) scale(.7)}18%{opacity:.7;transform:rotate(45deg) scale(1.1)}48%{opacity:.9;transform:rotate(45deg) scale(1.25)}70%{opacity:.35;transform:rotate(45deg) scale(.9)}}
+@keyframes regHalo{0%,100%{opacity:.55;transform:scale(.85)}48%{opacity:1;transform:scale(1.25)}}
+@media (prefers-reduced-motion: reduce){.tw,.sky,.reg-star,.reg-star2,.reg-halo{animation:none}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 900px; box-sizing: border-box; position: relative; overflow: hidden; background: #0B0F19; color: #F4F4F0; font-family: Inter, sans-serif">
+<div class="sky" aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 1440px; height: 900px">
+<img src="./assets/246207d8e163cb3cd51c6849d9136172.svg" alt="" style="position: absolute; left: 0; top: 0; width: 1440px; height: 900px; display: block">
+<div class="reg-halo" style="position: absolute; left: 1020px; top: 551px; width: 120px; height: 120px; border-radius: 50%; background: radial-gradient(circle, rgba(255,240,210,.55) 0%, rgba(197,168,128,.22) 35%, rgba(197,168,128,0) 70%)"></div>
+<svg class="reg-star" width="72" height="72" viewBox="0 0 24 24" style="position: absolute; left: 1044px; top: 575px"><path d="M12 0 L13.1 10.9 L24 12 L13.1 13.1 L12 24 L10.9 13.1 L0 12 L10.9 10.9 Z" fill="#FFF4DD"></path><circle cx="12" cy="12" r="1.6" fill="#FFFFFF"></circle></svg>
+<svg class="reg-star2" width="40" height="40" viewBox="0 0 24 24" style="position: absolute; left: 1060px; top: 591px"><path d="M12 0 L13.1 10.9 L24 12 L13.1 13.1 L12 24 L10.9 13.1 L0 12 L10.9 10.9 Z" fill="#F1E3C6" opacity=".7"></path></svg>
+</div>
+<div aria-hidden="true" style="position: absolute; inset: 0; background: radial-gradient(ellipse 34% 40% at 50% 46%, rgba(11,15,25,.5) 0%, rgba(11,15,25,.2) 60%, rgba(11,15,25,0) 100%)"></div>
+<span class="tw" aria-hidden="true" style="left: 132px; top: 236px"></span><span class="tw" aria-hidden="true" style="left: 1338px; top: 412px; animation-delay: 1.2s"></span><span class="tw" aria-hidden="true" style="left: 612px; top: 128px; animation-delay: 2.1s"></span><span class="tw" aria-hidden="true" style="left: 268px; top: 640px; animation-delay: .6s"></span><span class="tw" aria-hidden="true" style="left: 1190px; top: 250px; animation-delay: 2.8s"></span>
+<div style="position: absolute; left: 1118px; top: 636px; font-size: 11px; letter-spacing: 0.32em; color: rgba(233,215,180,.8)">REGULUS · α LEONIS</div>
+
+<div style="position: absolute; left: 0; right: 0; top: 96px; height: 1px; background: rgba(197,168,128,.4)"></div>
+<div style="position: absolute; left: 0; right: 0; top: 790px; height: 1px; background: rgba(197,168,128,.55)"></div>
+<div style="position: absolute; left: 720px; top: 790px; bottom: 0; width: 1px; background: rgba(197,168,128,.55)"></div>
+<div style="position: absolute; left: 200px; top: 96px; height: 694px; width: 1px; background: rgba(197,168,128,.18)"></div>
+<div style="position: absolute; right: 200px; top: 96px; height: 694px; width: 1px; background: rgba(197,168,128,.18)"></div>
+
+<nav style="position: absolute; left: 0; right: 0; top: 0; height: 96px; padding: 0 56px; display: flex; align-items: center; justify-content: space-between">
+<a href="#top" aria-label="Regulus Studio — accueil" style="display: block; height: 56px"><img src="./assets/ec3c5b8e7145af821e4ba1d476846546.svg" alt="Regulus Studio" style="height: 56px; width: auto; display: block"></a>
+<div style="display: flex; gap: 44px; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase">
+<a class="ul" href="#services">Services</a><a class="ul" href="#methode">Méthode</a><a class="ul" href="#realisations">Réalisations</a><a class="ul" href="#contact">Contact</a>
+</div>
+<a class="btn" href="#contact" style="padding: 14px 22px; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 500">Nous contacter <span aria-hidden="true">→</span></a>
+</nav>
+
+<div style="position: absolute; left: 200px; right: 200px; top: 116px; display: flex; flex-direction: column; align-items: center; text-align: center">
+<img class="seal" src="./assets/851ac25d196e461948e17faeb8391fbd.svg" alt="" style="width: 210px; height: 210px; display: block; margin-bottom: -16px">
+<h1 style="margin: 12px 0 0; display: flex; flex-direction: column; align-items: center; gap: 0">
+<span style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 124px; line-height: 0.9; letter-spacing: 0.1em; padding-left: 0.1em">REGULUS</span>
+<span style="display: flex; align-items: center; gap: 22px; margin-top: 14px; font-size: 20px; letter-spacing: 0.6em; color: #C5A880; font-weight: 500; padding-left: 0.6em"><span style="width: 150px; height: 1px; background: #C5A880"></span>STUDIO<span style="width: 150px; height: 1px; background: #C5A880"></span></span>
+</h1>
+<p style="margin: 32px 0 0; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 48px; line-height: 1; color: #C5A880">Beyond what’s possible.</p>
+<p style="margin: 16px 0 0; font-size: 18px; line-height: 1.6; font-weight: 300; letter-spacing: 0.02em; color: rgba(244,244,240,.85)">Création de sites web sur mesure et à votre image.</p>
+<div style="margin-top: 30px; display: flex; gap: 20px; align-items: center">
+<a class="btn btn-solid" href="#contact" style="padding: 18px 32px; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600">Demander un devis <span aria-hidden="true">→</span></a>
+<a class="btn" href="#realisations" style="padding: 18px 32px; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500">Voir nos réalisations</a>
+</div>
+</div>
+
+<div style="position: absolute; left: 0; right: 0; top: 791px; height: 109px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr))">
+<a class="offer" href="#portfolios" style="background: rgba(11,15,25,.78); display: flex; align-items: center; justify-content: space-between; padding: 0 72px 0 96px">
+<div style="display: flex; align-items: baseline; gap: 28px">
+<span style="font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #C5A880">I</span>
+<div style="display: flex; align-items: baseline; gap: 24px">
+<div class="ttl" style="font-family: 'Cormorant Garamond', serif; font-size: 36px; line-height: 1">Portfolios</div>
+<div style="font-size: 11px; letter-spacing: 0.24em; color: rgba(244,244,240,.65)">ÉTUDIANTS &amp; PROFESSIONNELS</div>
+</div>
+</div>
+<span class="arr" aria-hidden="true" style="font-size: 24px; color: #C5A880">→</span>
+</a>
+<a class="offer" href="#site-vitrine" style="background: rgba(11,15,25,.78); display: flex; align-items: center; justify-content: space-between; padding: 0 96px 0 72px">
+<div style="display: flex; align-items: baseline; gap: 28px">
+<span style="font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #C5A880">II</span>
+<div style="display: flex; align-items: baseline; gap: 24px">
+<div class="ttl" style="font-family: 'Cormorant Garamond', serif; font-size: 36px; line-height: 1">Site Vitrine</div>
+<div style="font-size: 11px; letter-spacing: 0.24em; color: rgba(244,244,240,.65)">ENTREPRISES &amp; COMMERCES</div>
+</div>
+</div>
+<span class="arr" aria-hidden="true" style="font-size: 24px; color: #C5A880">→</span>
+</a>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maison Regulus — Portfolios &amp; sites web sur mesure</title>
+  <meta name="description" content="Maison Regulus : création de sites web sur mesure et à votre image. Portfolios pour étudiants et professionnels, sites vitrines pour entreprises et commerces.">
+  <meta name="theme-color" content="#0B0F19">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://regulus-studio.tech/">
+
+  <!-- Partage sur les réseaux -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Maison Regulus">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:url" content="https://regulus-studio.tech/">
+  <meta property="og:title" content="Maison Regulus — Portfolios &amp; sites web sur mesure">
+  <meta property="og:description" content="Maison de création de sites web sur mesure et à votre image : portfolios et sites vitrines.">
+  <meta property="og:image" content="https://regulus-studio.tech/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Maison Regulus — Portfolios &amp; sites web">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/sky.svg" as="image">
+  <link rel="stylesheet" href="styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Maison Regulus",
+    "slogan": "Beyond what’s possible.",
+    "alternateName": "Maison Regulus — Portfolios & sites web",
+    "description": "Maison de création de sites web sur mesure et à votre image : portfolios et sites vitrines.",
+    "url": "https://regulus-studio.tech/",
+    "logo": "https://regulus-studio.tech/assets/icon-192.png",
+    "image": "https://regulus-studio.tech/assets/og-image.jpg",
+    "email": "contact@regulus-studio.tech",
+    "telephone": "+261374967622",
+    "sameAs": ["https://www.facebook.com/profile.php?id=61593911283016"],
+    "makesOffer": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Portfolio" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Site vitrine" } }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#a-propos" data-i18n="skip">Aller au contenu</a>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero" id="top">
+
+    <!-- Ciel étoilé : constellation du Lion + Regulus (α Leonis) -->
+    <div class="hero__sky" aria-hidden="true">
+      <div class="sky">
+        <img class="sky__map" src="assets/sky.svg" alt="">
+        <div class="reg-halo"></div>
+        <svg class="reg-star" viewBox="0 0 24 24"><path d="M12 0 L13.1 10.9 L24 12 L13.1 13.1 L12 24 L10.9 13.1 L0 12 L10.9 10.9 Z" fill="#FFF4DD"/><circle cx="12" cy="12" r="1.6" fill="#FFFFFF"/></svg>
+        <svg class="reg-star2" viewBox="0 0 24 24"><path d="M12 0 L13.1 10.9 L24 12 L13.1 13.1 L12 24 L10.9 13.1 L0 12 L10.9 10.9 Z" fill="#F1E3C6" opacity=".7"/></svg>
+        <span class="reg-label">REGULUS · α LEONIS</span>
+        <span class="tw" style="--x:9.2%;  --y:26.2%"></span>
+        <span class="tw" style="--x:92.9%; --y:45.8%; --d:1.2s"></span>
+        <span class="tw" style="--x:42.5%; --y:14.2%; --d:2.1s"></span>
+        <span class="tw" style="--x:18.6%; --y:71.1%; --d:.6s"></span>
+        <span class="tw" style="--x:82.6%; --y:27.8%; --d:2.8s"></span>
+      </div>
+    </div>
+    <div class="hero__vignette" aria-hidden="true"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" aria-label="Navigation principale" data-i18n-aria="nav.aria">
+      <a class="nav__brand" href="#top" aria-label="Maison Regulus — accueil" data-i18n-aria="brand.aria">
+        <img src="assets/logo-fr.svg" alt="Maison Regulus — Portfolios &amp; sites web" width="177" height="56" data-i18n-src="logo.src" data-i18n-alt="logo.alt">
+      </a>
+
+      <div class="lang" role="group" aria-label="Langue" data-i18n-aria="lang.aria">
+        <button type="button" data-lang="fr" aria-pressed="true" aria-label="Français">FR</button>
+        <span aria-hidden="true">/</span>
+        <button type="button" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+      </div>
+
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+        <span class="sr-only">Menu</span>
+        <span class="nav__bars" aria-hidden="true"></span>
+      </button>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__links">
+          <li><a class="ul" href="#a-propos" data-i18n="nav.about">À propos</a></li>
+          <li><a class="ul" href="#services" data-i18n="nav.services">Services</a></li>
+          <li><a class="ul" href="#realisations" data-i18n="nav.work">Réalisations</a></li>
+          <li><a class="ul" href="#contact" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+        <a class="btn nav__cta" href="#contact"><span data-i18n="cta.contact">Nous contacter</span> <span aria-hidden="true">→</span></a>
+        <p class="nav__tagline" aria-hidden="true">Beyond what’s possible.</p>
+      </div>
+    </nav>
+
+    <!-- Contenu principal -->
+    <div class="hero__body">
+      <img class="seal" src="assets/emblem-gold.svg" alt="" width="204" height="264">
+
+      <h1 class="hero__title">
+        <span class="hero__maison">Maison</span>
+        <span class="hero__name">Regulus</span>
+        <span class="hero__studio"><span class="rule"></span><span data-i18n="hero.sub">Portfolios &amp; sites web</span><span class="rule"></span></span>
+      </h1>
+
+      <p class="hero__tagline">Beyond what’s possible.</p>
+      <p class="hero__lead" data-i18n="hero.lead">Maison de création de sites web sur mesure et à votre image.</p>
+
+      <div class="hero__actions">
+        <a class="btn btn--solid" href="#contact"><span data-i18n="cta.quote">Demander un devis</span> <span aria-hidden="true">→</span></a>
+        <a class="btn" href="#realisations" data-i18n="cta.work">Voir nos réalisations</a>
+      </div>
+    </div>
+
+    <!-- Les deux offres -->
+    <div class="offers">
+      <a class="offer" href="#portfolios">
+        <span class="offer__head">
+          <span class="offer__num">I</span>
+          <span class="offer__text">
+            <span class="offer__title">Portfolios</span>
+            <span class="offer__meta" data-i18n="offer1.meta">Étudiants &amp; professionnels</span>
+          </span>
+        </span>
+        <span class="offer__arr" aria-hidden="true">→</span>
+      </a>
+      <a class="offer" href="#site-vitrine">
+        <span class="offer__head">
+          <span class="offer__num">II</span>
+          <span class="offer__text">
+            <span class="offer__title" data-i18n="offer2.title">Site Vitrine</span>
+            <span class="offer__meta" data-i18n="offer2.meta">Entreprises &amp; commerces</span>
+          </span>
+        </span>
+        <span class="offer__arr" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+  <!-- ============ À PROPOS ============ -->
+  <section class="about" id="a-propos" aria-labelledby="about-title">
+    <div class="about__inner">
+
+      <!-- Emblème maison décoré : astrolabe, toits en écho, lueur de Regulus, socle -->
+      <figure class="about__arch" data-reveal aria-hidden="true">
+        <svg class="arch" viewBox="0 0 480 600">
+          <defs>
+            <path id="spark" d="M12 0 L13.1 10.9 L24 12 L13.1 13.1 L12 24 L10.9 13.1 L0 12 L10.9 10.9 Z"/>
+            <linearGradient id="archFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#18203A"/>
+              <stop offset=".55" stop-color="#0F1424"/>
+              <stop offset="1" stop-color="#0B0F19"/>
+            </linearGradient>
+            <radialGradient id="archGlow" cx="240" cy="182" r="150" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#F3E4C4" stop-opacity=".32"/>
+              <stop offset=".4" stop-color="#C5A880" stop-opacity=".08"/>
+              <stop offset="1" stop-color="#C5A880" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="starHalo" cx="50%" cy="50%" r="50%">
+              <stop offset="0" stop-color="#FFF0D2" stop-opacity=".9"/>
+              <stop offset=".35" stop-color="#C5A880" stop-opacity=".3"/>
+              <stop offset="1" stop-color="#C5A880" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="plinth" x1="40" y1="0" x2="440" y2="0" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#C5A880" stop-opacity="0"/>
+              <stop offset=".5" stop-color="#C5A880" stop-opacity=".8"/>
+              <stop offset="1" stop-color="#C5A880" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Anneau d'astrolabe -->
+          <g class="arch__ring">
+            <circle cx="240" cy="280" r="214" fill="none" stroke="#C5A880" stroke-opacity=".18"/>
+            <circle cx="240" cy="280" r="198" fill="none" stroke="#C5A880" stroke-opacity=".35" stroke-width="7" pathLength="360" stroke-dasharray=".5 2.5"/>
+            <circle cx="240" cy="280" r="198" fill="none" stroke="#C5A880" stroke-opacity=".7" stroke-width="14" pathLength="360" stroke-dasharray="1 29"/>
+            <circle cx="240" cy="280" r="182" fill="none" stroke="#C5A880" stroke-opacity=".14"/>
+          </g>
+          <circle class="arch__orbit" cx="240" cy="280" r="230" fill="none" stroke="#C5A880" stroke-opacity=".3" stroke-dasharray="2 10"/>
+
+          <!-- Toits et murs en écho -->
+          <path class="draw" pathLength="1" d="M26 264 L240 30 L454 264" fill="none" stroke="#C5A880" stroke-opacity=".22"/>
+          <path class="draw" pathLength="1" d="M74 282 V526 H406 V282" fill="none" stroke="#C5A880" stroke-opacity=".22"/>
+          <path class="draw" pathLength="1" d="M48 256 L240 50 L432 256" fill="none" stroke="#C5A880" stroke-opacity=".45"/>
+          <path class="draw" pathLength="1" d="M90 274 V508 H390 V274" fill="none" stroke="#C5A880" stroke-opacity=".45"/>
+
+          <!-- Intérieur : toit et corps de la maison -->
+          <path d="M70 240 L240 70 L410 240 Z" fill="url(#archFill)"/>
+          <path d="M107.4 263.8 V491.6 H372.6 V263.8 Z" fill="url(#archFill)"/>
+          <path d="M70 240 L240 70 L410 240 Z" fill="url(#archGlow)"/>
+          <path d="M107.4 263.8 V491.6 H372.6 V263.8 Z" fill="url(#archGlow)"/>
+
+          <!-- Emblème (géométrie du logo, agrandie) -->
+          <g transform="translate(70 53) scale(1.7)" stroke-linejoin="miter" stroke-linecap="square">
+            <path class="draw" pathLength="1" d="M0 110 L100 10 L200 110" fill="none" stroke="#C5A880" stroke-width="1.4"/>
+            <path class="draw" pathLength="1" d="M30 106 L100 36 L170 106" fill="none" stroke="#C5A880" stroke-width=".6" stroke-opacity=".75"/>
+            <path class="draw" pathLength="1" d="M22 124 V258 H178 V124" fill="none" stroke="#C5A880" stroke-width="1.4"/>
+            <path class="draw" pathLength="1" d="M34 134 V246 H166 V134" fill="none" stroke="#C5A880" stroke-width=".6" stroke-opacity=".75"/>
+            <path class="arch__r" d="M93.07 187.34 102.45 184.4Q114.35 201.9 122.47 211.7Q130.59 221.5 136.82 225.91Q143.05 230.32 148.93 230.32Q149.35000000000002 230.32 149.35000000000002 231.16Q149.35000000000002 232.0 148.93 232.0H128.91000000000003Q125.41000000000001 232.0 115.96000000000001 220.24Q106.51 208.48 93.07 187.34ZM119.39 162.27999999999997Q119.39 169.84 114.98 176.07Q110.57000000000001 182.3 103.29 185.87Q96.01 189.44 87.75 189.44Q84.81 189.44 80.89 189.16V220.66Q80.89 224.86 81.72999999999999 226.89Q82.57 228.92 84.88 229.62Q87.19 230.32 92.23 230.32Q92.65 230.32 92.65 231.16Q92.65 232.0 92.23 232.0Q87.89 232.0 85.37 231.86L75.28999999999999 231.72L65.49 231.86Q62.83 232.0 58.35 232.0Q57.93 232.0 57.93 231.16Q57.93 230.32 58.35 230.32Q63.39 230.32 65.77000000000001 229.62Q68.15 228.92 68.99000000000001 226.89Q69.83 224.86 69.83 220.66V155.83999999999997Q69.83 151.64 68.99000000000001 149.68Q68.15 147.72 65.84 146.95Q63.53 146.18 58.489999999999995 146.18Q58.21 146.18 58.21 145.34Q58.21 144.5 58.489999999999995 144.5L65.49 144.64Q71.65 144.92 75.28999999999999 144.92Q78.23 144.92 80.89 144.77999999999997Q83.55 144.64 85.50999999999999 144.5Q90.83000000000001 144.07999999999998 95.17 144.07999999999998Q106.79 144.07999999999998 113.09 148.98Q119.39 153.88 119.39 162.27999999999997ZM90.83000000000001 146.45999999999998Q85.37 146.45999999999998 83.13 148.48999999999998Q80.89 150.51999999999998 80.89 156.12V185.66Q84.95 186.07999999999998 89.15 186.07999999999998Q99.23 186.07999999999998 103.57 181.39Q107.91 176.7 107.91 166.76Q107.91 155.56 103.57 151.01Q99.23 146.45999999999998 90.83000000000001 146.45999999999998Z" fill="#C5A880"/>
+          </g>
+
+          <!-- Regulus sous le toit -->
+          <g class="arch__star">
+            <circle cx="240" cy="182" r="34" fill="url(#starHalo)"/>
+            <use href="#spark" x="226" y="168" width="28" height="28" fill="#FFF4DD"/>
+          </g>
+
+          <!-- Étincelles autour -->
+          <use class="arch__spark" href="#spark" x="30" y="110" width="14" height="14" fill="#E9D7B4"/>
+          <use class="arch__spark" href="#spark" x="440" y="150" width="10" height="10" fill="#E9D7B4" style="--d:1.4s"/>
+          <use class="arch__spark" href="#spark" x="20" y="400" width="9" height="9" fill="#E9D7B4" style="--d:2.2s"/>
+          <use class="arch__spark" href="#spark" x="450" y="430" width="13" height="13" fill="#E9D7B4" style="--d:.7s"/>
+
+          <!-- Socle -->
+          <line class="draw" pathLength="1" x1="40" y1="548" x2="440" y2="548" stroke="url(#plinth)"/>
+          <line x1="110" y1="556" x2="370" y2="556" stroke="url(#plinth)" stroke-opacity=".5"/>
+          <use href="#spark" x="233" y="541" width="14" height="14" fill="#C5A880"/>
+          <text x="240" y="588" text-anchor="middle" class="arch__label">α  LEONIS</text>
+        </svg>
+      </figure>
+
+      <!-- Texte -->
+      <div class="about__content">
+        <p class="eyebrow" data-reveal><span class="eyebrow__rule"></span><span data-i18n="about.eyebrow">À propos</span></p>
+        <h2 class="about__title" id="about-title" data-reveal data-i18n="about.title">L’éclat d’une étoile, la rigueur d’un atelier.</h2>
+
+        <p class="about__text" data-reveal data-i18n="about.p1">Regulus, « petit roi » en latin, est l’étoile la plus brillante de la constellation du Lion. Elle a donné son nom à la maison : une lumière précise et constante, qui guide sans en faire trop.</p>
+        <p class="about__text" data-reveal data-i18n="about.p2">Maison Regulus conçoit des portfolios pour les étudiants et les professionnels, et des sites vitrines pour les entreprises et les commerces, tous sur mesure. Chaque site est pensé à votre image : votre valeur, votre métier, vos préférences.</p>
+        <p class="about__text" data-reveal data-i18n="about.p3">Votre site est suivi de près, du premier échange à la livraison.</p>
+
+        <ol class="pledges" data-reveal>
+          <li class="pledge"><span class="pledge__num">I</span><span class="pledge__body"><span class="pledge__title" data-i18n="about.s1.t">Écouter et cadrer</span><span class="pledge__text" data-i18n="about.s1.d">Nous cadrons vos objectifs et les pages du site.</span></span></li>
+          <li class="pledge"><span class="pledge__num">II</span><span class="pledge__body"><span class="pledge__title" data-i18n="about.s2.t">Concevoir avec vous</span><span class="pledge__text" data-i18n="about.s2.d">Vous validez la structure et le design du site.</span></span></li>
+          <li class="pledge"><span class="pledge__num">III</span><span class="pledge__body"><span class="pledge__title" data-i18n="about.s3.t">Vérifier à chaque étape</span><span class="pledge__text" data-i18n="about.s3.d">Nous vérifions chaque étape avant livraison.</span></span></li>
+          <li class="pledge"><span class="pledge__num">IV</span><span class="pledge__body"><span class="pledge__title" data-i18n="about.s4.t">Rester joignables</span><span class="pledge__text" data-i18n="about.s4.d">Nous restons joignables jusqu’à la livraison.</span></span></li>
+        </ol>
+
+        <div data-reveal>
+          <a class="btn" href="#contact"><span data-i18n="about.cta">Discuter de mon projet</span> <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="services" id="services" aria-labelledby="services-title">
+    <header class="services__head">
+      <p class="eyebrow eyebrow--center" data-reveal><span class="eyebrow__rule"></span><span data-i18n="svc.eyebrow">Services</span><span class="eyebrow__rule eyebrow__rule--end"></span></p>
+      <h2 class="services__title" id="services-title" data-reveal data-i18n="svc.title">Deux formules, une même exigence.</h2>
+      <p class="services__intro" data-reveal data-i18n="svc.intro">Que vous présentiez votre parcours ou votre activité, chaque site est conçu sur mesure et adapté aux mobiles comme aux ordinateurs.</p>
+    </header>
+
+    <div class="services__grid">
+      <article class="service" id="portfolios" data-reveal>
+        <svg class="service__pediment" viewBox="0 0 96 30" aria-hidden="true"><path d="M2 29 L48 3 L94 29"/><path class="service__pediment-in" d="M18 29 L48 12 L78 29"/></svg>
+        <svg class="service__apex" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.1 10.9 L24 12 L13.1 13.1 L12 24 L10.9 13.1 L0 12 L10.9 10.9 Z"/></svg>
+        <span class="service__corner service__corner--tl" aria-hidden="true"></span>
+        <span class="service__corner service__corner--tr" aria-hidden="true"></span>
+        <span class="service__corner service__corner--bl" aria-hidden="true"></span>
+        <span class="service__corner service__corner--br" aria-hidden="true"></span>
+        <div class="service__art" aria-hidden="true"><svg viewBox="0 0 160 120" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect class="draw" pathLength="1" x="50" y="18" width="60" height="78" rx="2"/>
+          <rect class="draw" pathLength="1" x="56" y="24" width="48" height="66" rx="1" stroke-opacity=".5"/>
+          <circle class="draw" pathLength="1" cx="80" cy="48" r="10"/>
+          <path class="draw" pathLength="1" d="M62 90 C64 72 96 72 98 90"/>
+          <rect class="draw" pathLength="1" x="18" y="34" width="26" height="34" rx="1" stroke-opacity=".55"/>
+          <rect class="draw" pathLength="1" x="116" y="34" width="26" height="34" rx="1" stroke-opacity=".55"/>
+          <path class="draw" pathLength="1" d="M30 108 H130" stroke-opacity=".4"/>
+          <path d="M80 2 L81 8 L87 9 L81 10 L80 16 L79 10 L73 9 L79 8 Z" fill="currentColor" stroke="none"/>
+        </svg></div>
+        <p class="service__num">I</p>
+        <h3 class="service__title" data-i18n="svc.p.title">Portfolio</h3>
+        <p class="service__for" data-i18n="svc.p.for">Étudiants &amp; professionnels</p>
+        <p class="service__desc" data-i18n="svc.p.desc">Un site personnel pour valoriser votre parcours, vos projets et vos compétences, et vous rendre facile à contacter.</p>
+        <!-- À VALIDER : liste « inclus » et tarif provisoires -->
+        <ul class="service__list">
+            <li data-i18n="svc.p.i1">Présentation et parcours</li>
+            <li data-i18n="svc.p.i2">Galerie de projets</li>
+            <li data-i18n="svc.p.i3">CV téléchargeable</li>
+            <li data-i18n="svc.p.i4">Formulaire de contact et liens réseaux</li>
+            <li data-i18n="svc.p.i5">Adapté aux mobiles et ordinateurs</li>
+        </ul>
+        <div class="service__foot">
+          <p class="service__price"><span data-i18n="svc.priceLabel">Tarif</span> <strong data-i18n="svc.price">Sur devis</strong></p>
+          <a class="btn" href="#contact" data-project="Portfolio"><span data-i18n="cta.quote">Demander un devis</span> <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <div class="services__divider" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 0 L13.1 10.9 L24 12 L13.1 13.1 L12 24 L10.9 13.1 L0 12 L10.9 10.9 Z"/></svg>
+      </div>
+
+      <article class="service" id="site-vitrine" data-reveal>
+        <svg class="service__pediment" viewBox="0 0 96 30" aria-hidden="true"><path d="M2 29 L48 3 L94 29"/><path class="service__pediment-in" d="M18 29 L48 12 L78 29"/></svg>
+        <svg class="service__apex" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.1 10.9 L24 12 L13.1 13.1 L12 24 L10.9 13.1 L0 12 L10.9 10.9 Z"/></svg>
+        <span class="service__corner service__corner--tl" aria-hidden="true"></span>
+        <span class="service__corner service__corner--tr" aria-hidden="true"></span>
+        <span class="service__corner service__corner--bl" aria-hidden="true"></span>
+        <span class="service__corner service__corner--br" aria-hidden="true"></span>
+        <div class="service__art" aria-hidden="true"><svg viewBox="0 0 160 120" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+          <path class="draw" pathLength="1" d="M28 108 V44 H132 V108"/>
+          <path class="draw" pathLength="1" d="M22 44 L34 24 H126 L138 44"/>
+          <path class="draw" pathLength="1" d="M22 44 q8.7 10 17.3 0 q8.7 10 17.3 0 q8.7 10 17.3 0 q8.7 10 17.3 0 q8.7 10 17.3 0 q8.7 10 17.3 0" stroke-opacity=".8"/>
+          <rect class="draw" pathLength="1" x="40" y="64" width="44" height="30" rx="1"/>
+          <path class="draw" pathLength="1" d="M62 64 V94" stroke-opacity=".45"/>
+          <path class="draw" pathLength="1" d="M96 108 V64 H120 V108"/>
+          <circle cx="114" cy="88" r="1.6" fill="currentColor" stroke="none"/>
+          <path class="draw" pathLength="1" d="M14 108 H146" stroke-opacity=".4"/>
+          <path d="M80 2 L81 8 L87 9 L81 10 L80 16 L79 10 L73 9 L79 8 Z" fill="currentColor" stroke="none"/>
+        </svg></div>
+        <p class="service__num">II</p>
+        <h3 class="service__title" data-i18n="svc.v.title">Site Vitrine</h3>
+        <p class="service__for" data-i18n="svc.v.for">Entreprises &amp; commerces</p>
+        <p class="service__desc" data-i18n="svc.v.desc">Une présence professionnelle en ligne pour présenter votre activité et donner à vos clients un moyen simple de vous contacter.</p>
+        <!-- À VALIDER : liste « inclus » et tarif provisoires -->
+        <ul class="service__list">
+            <li data-i18n="svc.v.i1">Présentation de votre activité</li>
+            <li data-i18n="svc.v.i2">Vos services ou produits mis en valeur</li>
+            <li data-i18n="svc.v.i3">Formulaire de contact et bouton WhatsApp</li>
+            <li data-i18n="svc.v.i4">Localisation et horaires</li>
+            <li data-i18n="svc.v.i5">Adapté aux mobiles et ordinateurs</li>
+        </ul>
+        <div class="service__foot">
+          <p class="service__price"><span data-i18n="svc.priceLabel">Tarif</span> <strong data-i18n="svc.price">Sur devis</strong></p>
+          <a class="btn btn--solid" href="#contact" data-project="Site vitrine"><span data-i18n="cta.quote">Demander un devis</span> <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+    </div>
+
+    <aside class="services__after" data-reveal>
+      <p class="services__after-label" data-i18n="svc.after.t">Après la livraison</p>
+      <p class="services__after-text" data-i18n="svc.after.d">Hébergement, nom de domaine et maintenance sont proposés en option. Leur coût et leurs modalités sont précisés selon votre projet.</p>
+    </aside>
+  </section>
+
+  <!-- ============ RÉALISATIONS ============ -->
+  <section class="work" id="realisations" aria-labelledby="work-title">
+    <header class="work__head">
+      <p class="eyebrow" data-reveal><span class="eyebrow__rule"></span><span data-i18n="work.eyebrow">Réalisations</span></p>
+      <h2 class="work__title" id="work-title" data-reveal data-i18n="work.title">Les premières étoiles de notre constellation.</h2>
+    </header>
+
+    <article class="project">
+      <!-- Vitrine : version ordinateur + version mobile -->
+      <a class="project__visual" href="https://niriantsoa.me" target="_blank" rel="noopener" data-reveal aria-label="Voir le site niriantsoa.me (nouvel onglet)" data-i18n-aria="work.p1.visualAria">
+        <span class="browser">
+          <span class="browser__bar" aria-hidden="true">
+            <span class="browser__dots"><i></i><i></i><i></i></span>
+            <span class="browser__url">niriantsoa.me</span>
+          </span>
+          <img src="assets/realisations/niriantsoa-desktop.webp" alt="Page d’accueil du portfolio de Niriantsoa Francia Raheriniaina sur ordinateur" data-i18n-alt="work.p1.alt" width="1440" height="746" loading="lazy" decoding="async">
+        </span>
+        <span class="phone">
+          <img src="assets/realisations/niriantsoa-mobile.webp" alt="" width="390" height="844" loading="lazy" decoding="async">
+        </span>
+      </a>
+
+      <div class="project__info">
+        <p class="project__meta" data-reveal>
+          <span class="project__num">I</span>
+          <span data-i18n="work.p1.type">Portfolio</span>
+          <span class="project__live"><i aria-hidden="true"></i><span data-i18n="work.live">En ligne</span></span>
+        </p>
+        <h3 class="project__title" data-reveal>Niriantsoa Francia Raheriniaina</h3>
+        <p class="project__role" data-reveal data-i18n="work.p1.role">Astronome · Enseignante · Entrepreneure</p>
+        <p class="project__desc" data-reveal data-i18n="work.p1.desc">Un portfolio bilingue qui valorise un parcours entre astronomie, enseignement et entrepreneuriat : projets de recherche, applications, CV et contact.</p>
+        <ul class="project__tags" data-reveal>
+          <li data-i18n="work.p1.t1">Bilingue FR / EN</li>
+          <li data-i18n="work.p1.t2">Projets filtrables</li>
+          <li data-i18n="work.p1.t3">CV téléchargeable</li>
+          <li data-i18n="work.p1.t4">Écran d’accueil animé</li>
+          <li data-i18n="work.p1.t6">Musique d’ambiance intégrée</li>
+          <li data-i18n="work.p1.t5">Adapté aux mobiles</li>
+        </ul>
+        <div data-reveal>
+          <a class="btn" href="https://niriantsoa.me" target="_blank" rel="noopener"><span data-i18n="work.visit">Visiter le site</span> <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Appel : la prochaine réalisation -->
+    <div class="work__next" data-reveal>
+      <svg class="work__next-star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0 L13.1 10.9 L24 12 L13.1 13.1 L12 24 L10.9 13.1 L0 12 L10.9 10.9 Z"/></svg>
+      <p class="work__next-text" data-i18n="work.next">Votre projet sera la prochaine étoile.</p>
+      <a class="btn btn--solid" href="#contact"><span data-i18n="cta.quote">Demander un devis</span> <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact" id="contact" aria-labelledby="contact-title">
+    <div class="contact__inner">
+
+      <div class="contact__intro">
+        <p class="eyebrow" data-reveal><span class="eyebrow__rule"></span><span data-i18n="ct.eyebrow">Contact</span></p>
+        <h2 class="contact__title" id="contact-title" data-reveal data-i18n="ct.title">Un projet en tête ? Écrivons la suite ensemble.</h2>
+        <p class="contact__lead" data-reveal data-i18n="ct.lead">Parlez-nous de vous et de votre idée : nous revenons vers vous avec une proposition pensée pour votre projet.</p>
+
+        <ul class="channels" data-reveal>
+          <li>
+            <a class="channel" href="mailto:contact@regulus-studio.tech">
+              <span class="channel__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg></span>
+              <span class="channel__text"><span class="channel__label" data-i18n="fab.mail">E-mail</span><span class="channel__value">contact@regulus-studio.tech</span></span>
+              <svg class="channel__go" viewBox="0 0 24 12" aria-hidden="true"><path d="M1 6h21M17 1.5 22 6l-5 4.5"/></svg>
+            </a>
+          </li>
+          <li>
+            <a class="channel" href="https://wa.me/261374967622" target="_blank" rel="noopener">
+              <span class="channel__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2Zm5.8 14.02c-.24.68-1.42 1.3-1.95 1.35-.5.05-.97.23-3.27-.68-2.77-1.09-4.52-3.92-4.66-4.1-.13-.18-1.11-1.48-1.11-2.82 0-1.34.7-2 .95-2.28.25-.27.54-.34.72-.34h.52c.17 0 .39-.06.61.47.24.56.79 1.92.86 2.06.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.52 1.9 1.05.93 1.93 1.22 2.2 1.36.27.14.43.11.59-.07.16-.18.68-.79.86-1.07.18-.27.36-.23.61-.14.25.09 1.58.75 1.85.88.27.14.45.2.52.32.07.11.07.66-.17 1.33Z"/></svg></span>
+              <span class="channel__text"><span class="channel__label">WhatsApp</span><span class="channel__value">+261 37 49 676 22</span></span>
+              <svg class="channel__go" viewBox="0 0 24 12" aria-hidden="true"><path d="M1 6h21M17 1.5 22 6l-5 4.5"/></svg>
+            </a>
+          </li>
+          <li>
+            <a class="channel" href="https://www.facebook.com/profile.php?id=61593911283016" target="_blank" rel="noopener">
+              <span class="channel__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21h3Z"/></svg></span>
+              <span class="channel__text"><span class="channel__label">Facebook</span><span class="channel__value">Maison Regulus</span></span>
+              <svg class="channel__go" viewBox="0 0 24 12" aria-hidden="true"><path d="M1 6h21M17 1.5 22 6l-5 4.5"/></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Formulaire : envoyé gratuitement par FormSubmit vers contact@regulus-studio.tech -->
+      <div class="letter" data-reveal>
+        <div class="letter__seal" aria-hidden="true">
+          <svg viewBox="-4 4 208 258"><g stroke-linejoin="miter" stroke-linecap="square"><path d="M0 110 L100 10 L200 110" fill="none" stroke="currentColor" stroke-width="3"/>
+  <path d="M30 106 L100 36 L170 106" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".75"/>
+  <path d="M100 61 L101.95 74.05 L115 76 L101.95 77.95 L100 91 L98.05 77.95 L85 76 L98.05 74.05 Z" fill="currentColor"/>
+  <path d="M22 124 V258 H178 V124" fill="none" stroke="currentColor" stroke-width="3"/>
+  <path d="M34 134 V246 H166 V134" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".75"/>
+  <path d="M93.07 187.34 102.45 184.4Q114.35 201.9 122.47 211.7Q130.59 221.5 136.82 225.91Q143.05 230.32 148.93 230.32Q149.35000000000002 230.32 149.35000000000002 231.16Q149.35000000000002 232.0 148.93 232.0H128.91000000000003Q125.41000000000001 232.0 115.96000000000001 220.24Q106.51 208.48 93.07 187.34ZM119.39 162.27999999999997Q119.39 169.84 114.98 176.07Q110.57000000000001 182.3 103.29 185.87Q96.01 189.44 87.75 189.44Q84.81 189.44 80.89 189.16V220.66Q80.89 224.86 81.72999999999999 226.89Q82.57 228.92 84.88 229.62Q87.19 230.32 92.23 230.32Q92.65 230.32 92.65 231.16Q92.65 232.0 92.23 232.0Q87.89 232.0 85.37 231.86L75.28999999999999 231.72L65.49 231.86Q62.83 232.0 58.35 232.0Q57.93 232.0 57.93 231.16Q57.93 230.32 58.35 230.32Q63.39 230.32 65.77000000000001 229.62Q68.15 228.92 68.99000000000001 226.89Q69.83 224.86 69.83 220.66V155.83999999999997Q69.83 151.64 68.99000000000001 149.68Q68.15 147.72 65.84 146.95Q63.53 146.18 58.489999999999995 146.18Q58.21 146.18 58.21 145.34Q58.21 144.5 58.489999999999995 144.5L65.49 144.64Q71.65 144.92 75.28999999999999 144.92Q78.23 144.92 80.89 144.77999999999997Q83.55 144.64 85.50999999999999 144.5Q90.83000000000001 144.07999999999998 95.17 144.07999999999998Q106.79 144.07999999999998 113.09 148.98Q119.39 153.88 119.39 162.27999999999997ZM90.83000000000001 146.45999999999998Q85.37 146.45999999999998 83.13 148.48999999999998Q80.89 150.51999999999998 80.89 156.12V185.66Q84.95 186.07999999999998 89.15 186.07999999999998Q99.23 186.07999999999998 103.57 181.39Q107.91 176.7 107.91 166.76Q107.91 155.56 103.57 151.01Q99.23 146.45999999999998 90.83000000000001 146.45999999999998Z" fill="currentColor"/></g></svg>
+        </div>
+        <span class="letter__corner letter__corner--tl" aria-hidden="true"></span>
+        <span class="letter__corner letter__corner--tr" aria-hidden="true"></span>
+        <span class="letter__corner letter__corner--bl" aria-hidden="true"></span>
+        <span class="letter__corner letter__corner--br" aria-hidden="true"></span>
+
+        <form class="letter__form" id="contact-form" action="https://formsubmit.co/contact@regulus-studio.tech" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="Nouvelle demande — Maison Regulus">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="form_type" value="Demande de contact">
+          <input class="letter__honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <p class="letter__heading" data-i18n="ct.formTitle">Écrivez-nous</p>
+
+          <fieldset class="letter__group">
+            <legend><span class="letter__step">01</span><span data-i18n="ct.step1">Faisons connaissance</span></legend>
+            <div class="letter__grid">
+              <div class="field">
+                <input id="cf-name" name="name" type="text" autocomplete="name" maxlength="80" placeholder=" " required>
+                <label for="cf-name"><span data-i18n="ct.name">Votre nom</span> <em>*</em></label>
+              </div>
+              <div class="field">
+                <input id="cf-company" name="company" type="text" autocomplete="organization" maxlength="100" placeholder=" ">
+                <label for="cf-company" data-i18n="ct.company">Entreprise ou activité</label>
+              </div>
+              <div class="field">
+                <input id="cf-email" name="email" type="email" autocomplete="email" maxlength="160" placeholder=" " required>
+                <label for="cf-email"><span data-i18n="ct.email">Votre e-mail</span> <em>*</em></label>
+              </div>
+              <div class="field">
+                <input id="cf-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="30" placeholder=" ">
+                <label for="cf-phone" data-i18n="ct.phone">Téléphone ou WhatsApp</label>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="letter__group">
+            <legend><span class="letter__step">02</span><span data-i18n="ct.step2">Votre projet</span></legend>
+            <div class="chips" role="radiogroup" aria-label="Type de projet" data-i18n-aria="ct.typeAria">
+              <label class="chip"><input type="radio" name="project_type" value="Portfolio" checked><span data-i18n="svc.p.title">Portfolio</span></label>
+              <label class="chip"><input type="radio" name="project_type" value="Site vitrine"><span data-i18n="svc.v.title">Site Vitrine</span></label>
+              <label class="chip"><input type="radio" name="project_type" value="Je ne sais pas encore"><span data-i18n="ct.unsure">Je ne sais pas encore</span></label>
+            </div>
+            <div class="field field--area">
+              <textarea id="cf-message" name="message" rows="4" maxlength="1500" placeholder=" " required></textarea>
+              <label for="cf-message"><span data-i18n="ct.message">Parlez-nous de votre idée</span> <em>*</em></label>
+            </div>
+          </fieldset>
+
+          <div class="letter__foot">
+            <p class="letter__note" data-i18n="ct.note">Vos informations servent uniquement à vous répondre.</p>
+            <button class="btn btn--solid letter__submit" type="submit">
+              <span data-i18n="ct.send">Envoyer le message</span>
+              <span class="letter__spinner" aria-hidden="true"></span>
+              <span class="letter__arrow" aria-hidden="true">→</span>
+            </button>
+          </div>
+          <p class="letter__status" role="status" aria-live="polite"></p>
+        </form>
+
+        <!-- État « message envoyé » -->
+        <div class="letter__done" tabindex="-1" hidden>
+          <svg class="letter__constellation" viewBox="0 0 220 120" aria-hidden="true">
+            <polyline class="draw" pathLength="1" points="20,90 60,62 110,30 160,58 200,84" fill="none" stroke="#C5A880" stroke-opacity=".6"/>
+            <circle cx="20" cy="90" r="2.5" fill="#E9D7B4"/><circle cx="60" cy="62" r="3" fill="#E9D7B4"/>
+            <circle cx="160" cy="58" r="3" fill="#E9D7B4"/><circle cx="200" cy="84" r="2.5" fill="#E9D7B4"/>
+            <g transform="translate(96 16) scale(1.2)"><path class="letter__done-star" d="M12 0 L13.1 10.9 L24 12 L13.1 13.1 L12 24 L10.9 13.1 L0 12 L10.9 10.9 Z" fill="#FFF4DD"/></g>
+          </svg>
+          <p class="letter__done-title" data-i18n="ct.doneTitle">Message envoyé.</p>
+          <p class="letter__done-text" data-i18n="ct.doneText">Merci ! Nous avons bien reçu votre message et nous vous répondons très vite à l’adresse indiquée.</p>
+          <button class="btn letter__again" type="button" data-i18n="ct.again">Envoyer un autre message</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer__top" data-reveal>
+      <div class="footer__brand">
+        <a href="#top" class="footer__logo" aria-label="Maison Regulus — accueil" data-i18n-aria="brand.aria">
+          <img src="assets/logo-fr.svg" alt="Maison Regulus — Portfolios &amp; sites web" width="254" height="80" loading="lazy" data-i18n-src="logo.src" data-i18n-alt="logo.alt">
+        </a>
+        <p class="footer__tagline">Beyond what’s possible.</p>
+        <p class="footer__about" data-i18n="hero.lead">Maison de création de sites web sur mesure et à votre image.</p>
+      </div>
+
+      <nav class="footer__col" aria-label="Navigation du pied de page" data-i18n-aria="ft.navAria">
+        <p class="footer__title" data-i18n="ft.nav">Navigation</p>
+        <ul>
+          <li><a class="ul" href="#a-propos" data-i18n="nav.about">À propos</a></li>
+          <li><a class="ul" href="#services" data-i18n="nav.services">Services</a></li>
+          <li><a class="ul" href="#realisations" data-i18n="nav.work">Réalisations</a></li>
+          <li><a class="ul" href="#contact" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer__col">
+        <p class="footer__title" data-i18n="svc.eyebrow">Services</p>
+        <ul>
+          <li><a class="ul" href="#portfolios" data-i18n="svc.p.title">Portfolio</a></li>
+          <li><a class="ul" href="#site-vitrine" data-i18n="svc.v.title">Site Vitrine</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <p class="footer__title" data-i18n="ct.eyebrow">Contact</p>
+        <ul>
+          <li><a class="ul" href="mailto:contact@regulus-studio.tech">contact@regulus-studio.tech</a></li>
+          <li><a class="ul" href="https://wa.me/261374967622" target="_blank" rel="noopener">WhatsApp · +261 37 49 676 22</a></li>
+          <li><a class="ul" href="https://www.facebook.com/profile.php?id=61593911283016" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Signature : le nom en grand, Regulus scintille au-dessus -->
+    <div class="footer__sign" data-reveal aria-hidden="true">
+      <p class="footer__maison">Maison</p>
+      <p class="footer__word"><span style="--i:0">R</span><span style="--i:1">E</span><span style="--i:2">G</span><span style="--i:3">U</span><span style="--i:4">L</span><span style="--i:5">U</span><span style="--i:6">S</span><svg class="footer__star" viewBox="0 0 24 24"><path d="M12 0 L13.1 10.9 L24 12 L13.1 13.1 L12 24 L10.9 13.1 L0 12 L10.9 10.9 Z"/></svg></p>
+    </div>
+
+    <div class="footer__bottom">
+      <p>© <span data-year>2026</span> Maison Regulus. <span data-i18n="ft.rights">Tous droits réservés.</span></p>
+      <p class="footer__made" data-i18n="ft.made">Conçu avec soin.</p>
+      <a class="footer__up" href="#top"><span data-i18n="ft.up">Retour en haut</span> <span aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
+
+  <!-- ============ RETOUR À L'ACCUEIL ============ -->
+  <a class="to-top" href="#top" aria-label="Retour à l’accueil" data-i18n-aria="ft.upAria">
+    <svg class="to-top__ring" viewBox="0 0 52 52" aria-hidden="true">
+      <circle cx="26" cy="26" r="24" pathLength="1"/>
+    </svg>
+    <svg class="to-top__arrow" viewBox="0 0 12 24" aria-hidden="true"><path d="M6 22V2M1.5 6.5 6 2l4.5 4.5"/></svg>
+  </a>
+
+  <!-- ============ CONTACT FLOTTANT ============ -->
+  <div class="contact-fab">
+    <ul class="contact-fab__menu" id="contact-fab-menu">
+      <li>
+        <a class="contact-card" href="https://wa.me/261374967622" target="_blank" rel="noopener">
+          <span class="contact-card__icon contact-card__icon--wa" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2Zm5.8 14.02c-.24.68-1.42 1.3-1.95 1.35-.5.05-.97.23-3.27-.68-2.77-1.09-4.52-3.92-4.66-4.1-.13-.18-1.11-1.48-1.11-2.82 0-1.34.7-2 .95-2.28.25-.27.54-.34.72-.34h.52c.17 0 .39-.06.61.47.24.56.79 1.92.86 2.06.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.52 1.9 1.05.93 1.93 1.22 2.2 1.36.27.14.43.11.59-.07.16-.18.68-.79.86-1.07.18-.27.36-.23.61-.14.25.09 1.58.75 1.85.88.27.14.45.2.52.32.07.11.07.66-.17 1.33Z"/></svg>
+          </span>
+          <span class="contact-card__text">
+            <span class="contact-card__title">WhatsApp</span>
+            <span class="contact-card__sub" data-i18n="fab.wa">Réponse rapide</span>
+          </span>
+          <svg class="contact-card__go" viewBox="0 0 24 12" aria-hidden="true"><path d="M1 6h21M17 1.5 22 6l-5 4.5"/></svg>
+        </a>
+      </li>
+      <li>
+        <a class="contact-card" href="mailto:contact@regulus-studio.tech">
+          <span class="contact-card__icon contact-card__icon--mail" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>
+          </span>
+          <span class="contact-card__text">
+            <span class="contact-card__title" data-i18n="fab.mail">E-mail</span>
+            <span class="contact-card__sub">contact@regulus-studio.tech</span>
+          </span>
+          <svg class="contact-card__go" viewBox="0 0 24 12" aria-hidden="true"><path d="M1 6h21M17 1.5 22 6l-5 4.5"/></svg>
+        </a>
+      </li>
+    </ul>
+
+    <button class="contact-fab__toggle" type="button" aria-expanded="false" aria-controls="contact-fab-menu">
+      <span class="contact-fab__icons" aria-hidden="true">
+        <svg class="contact-fab__chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4V5Z"/></svg>
+        <svg class="contact-fab__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </span>
+      <span data-i18n="fab.toggle">Parlons-en</span>
+    </button>
+  </div>
+
+  <!-- Curseur : point lumineux + anneau doré (activé par script.js sur souris uniquement) -->
+  <div class="cursor" aria-hidden="true">
+    <span class="cursor__ring"></span>
+    <span class="cursor__dot"></span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
