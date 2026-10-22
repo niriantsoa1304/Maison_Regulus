@@ -1,0 +1,71 @@
+name: Build and Deploy
+on:
+  push:
+    branches: ["main"]
+    paths-ignore:
+      - "**.md"
+      - "**.pdf"
+      - "brag-output"
+      - "inspos"
+      - "logos"
+
+  pull_request:
+    branches: ["main"]
+    paths-ignore:
+      - "**.md"
+      - "**.pdf"
+      - "brag-output"
+      - "inspos"
+      - "logos"
+jobs:
+  build:
+    name: Build App
+    if: github.repository == 'niriantsoa1304/regulus-studio-website'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Create dist directory
+        run: mkdir dist
+      - name: Copy index.html to dist directory
+        run: cp index.html -t dist/
+      - name: Copy assets, css and js to dist directory
+        run: cp -r assets/ -t dist/
+      - name: Copy style and script
+        run: cp styles.css script.js -t dist/
+      - name: Minify CSS
+        run: npx lightningcss-cli --minify --targets '>= 0.25%' dist/styles.css -o dist/styles.css
+      - name: Minify JS
+        run: npx terser dist/script.js -c -m -o dist/script.js
+      - name: Minify HTML
+        run: |
+          npx html-minifier-terser dist/index.html \
+          --collapse-whitespace \
+          --remove-comments \
+          --remove-redundant-attributes \
+          --remove-empty-attributes \
+          --minify-css true \
+          --minify-js true \
+          -o dist/index.html
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: dist
+          path: dist/
+
+  deploy:
+    name: Deploy App to Cloudflare Pages
+    needs: build
+    if: github.event_name == 'push' && github.repository == 'niriantsoa1304/Maison_Regulus'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Download build artifact
+        uses: actions/download-artifact@v7
+        with:
+          name: dist
+          path: dist/
+      - name: Deploy to Cloudflare Pages
+        run: npx wrangler pages deploy dist --project-name=maison-regulus
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
