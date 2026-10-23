@@ -8,6 +8,7 @@ on:
       - "brag-output"
       - "inspos"
       - "logos"
+      - "Makefile"
 
   pull_request:
     branches: ["main"]
@@ -17,6 +18,7 @@ on:
       - "brag-output"
       - "inspos"
       - "logos"
+      - "Makefile"
 jobs:
   build:
     name: Build App
