@@ -1,4 +1,8 @@
-.PHONY: copy minify build deploy
+.PHONY: install copy minify build deploy
+
+install:
+	npm install
+
 copy:
 	[ -d dist ] && rm -rf dist || true
 	@mkdir dist
