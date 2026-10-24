@@ -26,18 +26,12 @@ const i18n = {
     'fab.mail': 'E-mail',
     'fab.toggle': 'Parlons-en',
     'about.eyebrow': 'À propos',
-    'about.title': 'L’éclat d’une étoile, la rigueur d’un atelier.',
-    'about.p1': 'Regulus, « petit roi » en latin, est l’étoile la plus brillante de la constellation du Lion. Elle a donné son nom à la maison : une lumière précise et constante, qui guide sans en faire trop.',
-    'about.p2': 'Maison Regulus conçoit des portfolios pour les étudiants et les professionnels, et des sites vitrines pour les entreprises et les commerces, tous sur mesure. Chaque site est pensé à votre image : votre valeur, votre métier, vos préférences.',
-    'about.p3': 'Votre site est suivi de près, du premier échange à la livraison.',
-    'about.s1.t': 'Écouter et cadrer',
-    'about.s1.d': 'Nous cadrons vos objectifs et les pages du site.',
-    'about.s2.t': 'Concevoir avec vous',
-    'about.s2.d': 'Vous validez la structure et le design du site.',
-    'about.s3.t': 'Vérifier à chaque étape',
-    'about.s3.d': 'Nous vérifions chaque étape avant livraison.',
-    'about.s4.t': 'Rester joignables',
-    'about.s4.d': 'Nous restons joignables jusqu’à la livraison.',
+    'about.title': 'Être reconnaissable, c’est déjà être un repère.',
+    'about.p1': 'Aujourd’hui, créer un site web est à la portée de tous. Des modèles tout faits existent pour peu d’argent, et beaucoup de sites finissent par se ressembler : mêmes mises en page, mêmes formules, mêmes images.',
+    'about.p2': 'On obtient une présence en ligne, mais pas toujours une identité. Ce qui vous distingue, votre parcours, votre métier, votre manière de faire, ne s’y retrouve qu’à moitié.',
+    'about.p3': 'Regulus, « petit roi » en latin, est l’étoile la plus brillante du Lion. Elle n’est pas la plus éclatante du ciel, et pourtant on la reconnaît : elle est au cœur de sa constellation. Depuis des siècles, les navigateurs la comptent parmi leurs repères.',
+    'about.p4': 'Maison Regulus crée des portfolios pour les étudiants et les professionnels, et des sites vitrines pour les entreprises et les commerces. Chaque création est pensée pour vous, à partir de votre valeur et de votre activité, pour qu’elle vous ressemble.',
+    'about.closing': 'Dans un monde où tout se ressemble, se démarquer, c’est devenir reconnaissable.',
     'about.cta': 'Discuter de mon projet',
     'svc.eyebrow': 'Services',
     'svc.title': 'Deux formules, une même exigence.',
@@ -45,56 +39,69 @@ const i18n = {
     'svc.p.title': 'Portfolio',
     'svc.p.for': 'Étudiants & professionnels',
     'svc.p.desc': 'Un site personnel pour valoriser votre parcours, vos projets et vos compétences, et vous rendre facile à contacter.',
-    'svc.p.i1': 'Présentation et parcours',
-    'svc.p.i2': 'Galerie de projets',
-    'svc.p.i3': 'CV téléchargeable',
-    'svc.p.i4': 'Formulaire de contact et liens réseaux',
-    'svc.p.i5': 'Adapté aux mobiles et ordinateurs',
+    'svc.p.i1': 'Design unique, à l’image de la personne',
+    'svc.p.i2': 'Adapté au mobile',
+    'svc.p.i3': 'Projets et réalisations mis en valeur',
+    'svc.p.i4': 'CV téléchargeable et contact direct',
+    'svc.p.i5': 'Bel aperçu au partage sur les réseaux',
     'svc.v.title': 'Site Vitrine',
     'svc.v.for': 'Entreprises & commerces',
     'svc.v.desc': 'Une présence professionnelle en ligne pour présenter votre activité et donner à vos clients un moyen simple de vous contacter.',
-    'svc.v.i1': 'Présentation de votre activité',
-    'svc.v.i2': 'Vos services ou produits mis en valeur',
-    'svc.v.i3': 'Formulaire de contact et bouton WhatsApp',
-    'svc.v.i4': 'Localisation et horaires',
-    'svc.v.i5': 'Adapté aux mobiles et ordinateurs',
+    'svc.v.i1': 'Design sur mesure, aux couleurs de l’entreprise',
+    'svc.v.i2': 'Adapté au mobile et rapide à charger',
+    'svc.v.i3': 'Bouton WhatsApp ou appel en un clic',
+    'svc.v.i4': 'Fiche Google Business et référencement de base',
+    'svc.v.i5': 'Plan d’accès, horaires et coordonnées clairs',
     'svc.priceLabel': 'Tarif',
     'svc.price': 'Sur devis',
     'work.eyebrow': 'Réalisations',
-    'work.title': 'Les premières étoiles de notre constellation.',
+    'work.title': 'La première étoile de notre constellation.',
+    'work.p1.title': 'De Madagascar aux étoiles',
+    'work.p1.role': 'Portfolio de Niriantsoa Francia Raheriniaina — Astronome · Enseignante · Entrepreneure',
+    'work.p1.needT': 'Le besoin.',
+    'work.p1.need': 'Réunir trois métiers — astronomie, enseignement, entrepreneuriat — sans brouiller le message.',
+    'work.p1.answerT': 'Notre réponse.',
+    'work.p1.answer': 'Un bordeaux et or qui disent ce qu’elle est : sa passion, son élégance, sa force tranquille. Une entrée en scène théâtrale, et trois piliers lisibles en un coup d’œil.',
+    'work.p1.resultT': 'Le résultat.',
+    'work.p1.result': 'Un portfolio bilingue qui raconte un parcours, avec projets, CV et contact à portée de main.',
+    'work.p1.t1': 'Bordeaux & or, à son image',
+    'work.p1.t2': 'Rideau d’entrée en scène',
+    'work.p1.t3': 'Thème des étoiles',
+    'work.p1.t4': 'Bilingue FR / EN',
+    'work.p1.mobileAlt': 'Page d’accueil mobile du portfolio De Madagascar aux étoiles',
+    'work.visit': 'Visiter le site',
+    'work.like': 'Un portfolio comme celui-ci',
     'work.p1.visualAria': 'Voir le site niriantsoa.me (nouvel onglet)',
     'work.p1.type': 'Portfolio',
     'work.live': 'En ligne',
-    'work.p1.role': 'Astronome · Enseignante · Entrepreneure',
-    'work.p1.desc': 'Un portfolio bilingue qui valorise un parcours entre astronomie, enseignement et entrepreneuriat : projets de recherche, applications, CV et contact.',
-    'work.p1.t1': 'Bilingue FR / EN',
-    'work.p1.t2': 'Projets filtrables',
-    'work.p1.t3': 'CV téléchargeable',
-    'work.p1.t4': 'Écran d’accueil animé',
-    'work.p1.t5': 'Adapté aux mobiles',
-    'work.p1.t6': 'Musique d’ambiance intégrée',
-    'work.visit': 'Visiter le site',
     'work.next': 'Votre projet sera la prochaine étoile.',
     'ct.eyebrow': 'Contact',
+    'ct.email': 'Votre e-mail',
+    'ct.reachHelp': 'L’un des deux suffit.',
+    'ct.chipPortfolio': 'Portfolio',
+    'ct.chipVitrine': 'Site vitrine',
+    'ct.placeholder': 'Ex. : je suis étudiante en droit et je veux un portfolio pour mes candidatures.',
+    'ct.send': 'Recevoir ma proposition',
+    'ct.sending': 'Envoi en cours…',
+    'ct.doneTitle': 'Merci !',
+    'ct.doneText': 'Votre message est bien arrivé. Nous revenons vers vous dès que possible.',
+    'ct.errInvalid': 'Merci de remplir les champs marqués d’une étoile.',
+    'ct.errReach': 'Indiquez un e-mail ou un numéro WhatsApp pour que nous puissions vous répondre.',
+    'ct.errEmail': 'Cette adresse e-mail ne semble pas valide.',
+    'ct.errSend': 'L’envoi n’a pas fonctionné. Réessayez, ou écrivez-nous directement sur WhatsApp.',
     'ct.title': 'Un projet en tête ? Écrivons la suite ensemble.',
     'ct.lead': 'Parlez-nous de vous et de votre idée : nous revenons vers vous avec une proposition pensée pour votre projet.',
     'ct.formTitle': 'Écrivez-nous',
     'ct.step1': 'Faisons connaissance',
     'ct.name': 'Votre nom',
     'ct.company': 'Entreprise ou activité',
-    'ct.email': 'Votre e-mail',
     'ct.phone': 'Téléphone ou WhatsApp',
     'ct.step2': 'Votre projet',
     'ct.typeAria': 'Type de projet',
     'ct.unsure': 'Je ne sais pas encore',
     'ct.message': 'Parlez-nous de votre idée',
     'ct.note': 'Vos informations servent uniquement à vous répondre.',
-    'ct.send': 'Envoyer le message',
-    'ct.doneTitle': 'Message envoyé.',
-    'ct.doneText': 'Merci ! Nous avons bien reçu votre message et nous vous répondons très vite à l’adresse indiquée.',
     'ct.again': 'Envoyer un autre message',
-    'ct.errInvalid': 'Merci de remplir les champs marqués d’une étoile, avec une adresse e-mail valide.',
-    'ct.errSend': 'L’envoi n’a pas abouti. Réessayez dans un instant, ou écrivez-nous directement à contact@regulus-studio.tech.',
     'ft.navAria': 'Navigation du pied de page',
     'ft.nav': 'Navigation',
     'ft.rights': 'Tous droits réservés.',
@@ -130,18 +137,12 @@ const i18n = {
     'fab.mail': 'Email',
     'fab.toggle': "Let's talk",
     'about.eyebrow': 'About',
-    'about.title': 'The brilliance of a star, the rigour of a workshop.',
-    'about.p1': 'Regulus, Latin for “little king”, is the brightest star in the constellation Leo. It gave the house its name: a precise, steady light that guides without overdoing it.',
-    'about.p2': 'Maison Regulus designs bespoke portfolios for students and professionals, and business websites for companies and shops. Every site is made in your image: your value, your craft, your preferences.',
-    'about.p3': 'Your website is followed closely, from our first conversation to delivery.',
-    'about.s1.t': 'Listen and define',
-    'about.s1.d': 'We define your goals and the pages of your site.',
-    'about.s2.t': 'Design it with you',
-    'about.s2.d': 'You approve the structure and design of the site.',
-    'about.s3.t': 'Check every step',
-    'about.s3.d': 'We check every step before delivery.',
-    'about.s4.t': 'Stay reachable',
-    'about.s4.d': 'We stay reachable all the way to delivery.',
+    'about.title': 'Being recognizable makes you a landmark.',
+    'about.p1': 'Today, anyone can build a website. Ready-made templates are available for very little, and many sites end up looking alike: the same layouts, the same phrases, the same images.',
+    'about.p2': 'You get an online presence, but not always an identity. What sets you apart, your background, your craft, your way of working, only partly comes through.',
+    'about.p3': 'Regulus, Latin for “little king,” is the brightest star in the constellation Leo. It is not the most dazzling star in the night sky, yet it is easy to recognize: it sits at the heart of its constellation. For centuries, navigators have counted it among their reference points.',
+    'about.p4': 'Maison Regulus creates portfolios for students and professionals, and showcase websites for businesses and shops. Each creation is designed for you, based on your value and your work, so that it truly reflects who you are.',
+    'about.closing': 'In a world where everything looks the same, standing out means becoming recognizable.',
     'about.cta': 'Discuss my project',
     'svc.eyebrow': 'Services',
     'svc.title': 'Two offers, one standard.',
@@ -149,56 +150,69 @@ const i18n = {
     'svc.p.title': 'Portfolio',
     'svc.p.for': 'Students & professionals',
     'svc.p.desc': 'A personal website to showcase your journey, your projects and your skills, and make you easy to reach.',
-    'svc.p.i1': 'About you and your journey',
-    'svc.p.i2': 'Project gallery',
-    'svc.p.i3': 'Downloadable CV',
-    'svc.p.i4': 'Contact form and social links',
-    'svc.p.i5': 'Built for mobile and desktop',
+    'svc.p.i1': 'Unique design that reflects who you are',
+    'svc.p.i2': 'Mobile-friendly',
+    'svc.p.i3': 'Projects and achievements showcased',
+    'svc.p.i4': 'Downloadable CV and direct contact',
+    'svc.p.i5': 'Polished preview when shared on social media',
     'svc.v.title': 'Business Website',
     'svc.v.for': 'Companies & shops',
     'svc.v.desc': 'A professional online presence to introduce your business and give your customers a simple way to reach you.',
-    'svc.v.i1': 'Presentation of your business',
-    'svc.v.i2': 'Your services or products showcased',
-    'svc.v.i3': 'Contact form and WhatsApp button',
-    'svc.v.i4': 'Location and opening hours',
-    'svc.v.i5': 'Built for mobile and desktop',
+    'svc.v.i1': 'Custom design in your company’s colors',
+    'svc.v.i2': 'Mobile-friendly and fast-loading',
+    'svc.v.i3': 'One-tap WhatsApp or call button',
+    'svc.v.i4': 'Google Business Profile and basic SEO',
+    'svc.v.i5': 'Clear directions, opening hours and contact details',
     'svc.priceLabel': 'Pricing',
     'svc.price': 'On quote',
     'work.eyebrow': 'Work',
-    'work.title': 'The first stars of our constellation.',
+    'work.title': 'The first star of our constellation.',
+    'work.p1.title': 'From Madagascar to the Stars',
+    'work.p1.role': 'Portfolio of Niriantsoa Francia Raheriniaina — Astronomer · Teacher · Entrepreneur',
+    'work.p1.needT': 'The need.',
+    'work.p1.need': 'Bring three careers together — astronomy, teaching, entrepreneurship — without blurring the message.',
+    'work.p1.answerT': 'Our answer.',
+    'work.p1.answer': 'Burgundy and gold that speak to who she is: her passion, her elegance, her quiet strength. A theatrical opening, and three pillars readable at a glance.',
+    'work.p1.resultT': 'The result.',
+    'work.p1.result': 'A bilingual portfolio that tells a story, with projects, CV and contact close at hand.',
+    'work.p1.t1': 'Burgundy & gold, in her image',
+    'work.p1.t2': 'Stage-curtain opening',
+    'work.p1.t3': 'Star theme',
+    'work.p1.t4': 'Bilingual FR / EN',
+    'work.p1.mobileAlt': 'Mobile home page of the From Madagascar to the Stars portfolio',
+    'work.visit': 'Visit the site',
+    'work.like': 'A portfolio like this',
     'work.p1.visualAria': 'View niriantsoa.me (new tab)',
     'work.p1.type': 'Portfolio',
     'work.live': 'Live',
-    'work.p1.role': 'Astronomer · Teacher · Entrepreneur',
-    'work.p1.desc': 'A bilingual portfolio showcasing a journey across astronomy, teaching and entrepreneurship: research projects, apps, CV and contact.',
-    'work.p1.t1': 'Bilingual FR / EN',
-    'work.p1.t2': 'Filterable projects',
-    'work.p1.t3': 'Downloadable CV',
-    'work.p1.t4': 'Animated welcome screen',
-    'work.p1.t5': 'Mobile-friendly',
-    'work.p1.t6': 'Built-in background music',
-    'work.visit': 'Visit the site',
     'work.next': 'Your project will be the next star.',
     'ct.eyebrow': 'Contact',
+    'ct.email': 'Your email',
+    'ct.reachHelp': 'Email or WhatsApp — one is enough.',
+    'ct.chipPortfolio': 'Portfolio',
+    'ct.chipVitrine': 'Showcase website',
+    'ct.placeholder': 'E.g. I’m a law student and I’d like a portfolio for my applications.',
+    'ct.send': 'Get my proposal',
+    'ct.sending': 'Sending…',
+    'ct.doneTitle': 'Thank you!',
+    'ct.doneText': 'Your message has arrived. We’ll get back to you as soon as possible.',
+    'ct.errInvalid': 'Please fill in the fields marked with a star.',
+    'ct.errReach': 'Please enter an email or a WhatsApp number so we can get back to you.',
+    'ct.errEmail': 'This email address doesn’t look valid.',
+    'ct.errSend': 'Your message couldn’t be sent. Please try again, or write to us directly on WhatsApp.',
     'ct.title': 'Got a project in mind? Let’s write what comes next.',
     'ct.lead': 'Tell us about yourself and your idea: we will come back to you with a proposal designed for your project.',
     'ct.formTitle': 'Write to us',
     'ct.step1': 'Let’s get acquainted',
     'ct.name': 'Your name',
     'ct.company': 'Company or activity',
-    'ct.email': 'Your email',
     'ct.phone': 'Phone or WhatsApp',
     'ct.step2': 'Your project',
     'ct.typeAria': 'Project type',
     'ct.unsure': 'Not sure yet',
     'ct.message': 'Tell us about your idea',
     'ct.note': 'Your details are only used to reply to you.',
-    'ct.send': 'Send message',
-    'ct.doneTitle': 'Message sent.',
-    'ct.doneText': 'Thank you! We have received your message and will reply very soon to the address you gave.',
     'ct.again': 'Send another message',
-    'ct.errInvalid': 'Please fill in the fields marked with a star, with a valid email address.',
-    'ct.errSend': 'Your message could not be sent. Please try again shortly, or write to us directly at contact@regulus-studio.tech.',
     'ft.navAria': 'Footer navigation',
     'ft.nav': 'Navigation',
     'ft.rights': 'All rights reserved.',
@@ -225,6 +239,9 @@ function setLang(lang) {
   });
   document.querySelectorAll('[data-i18n-alt]').forEach((el) => {
     el.alt = t[el.dataset.i18nAlt];
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
+    el.placeholder = t[el.dataset.i18nPlaceholder];
   });
   document.querySelectorAll('[data-i18n-src]').forEach((el) => {
     el.src = t[el.dataset.i18nSrc];
@@ -406,18 +423,68 @@ function tr(key) {
   return i18n[lang][key];
 }
 
+const cf = {
+  name: contactForm.querySelector('#cf-name'),
+  email: contactForm.querySelector('#cf-email'),
+  phone: contactForm.querySelector('#cf-phone'),
+  message: contactForm.querySelector('#cf-message'),
+  reachError: contactForm.querySelector('#cf-reach-error'),
+  submit: contactForm.querySelector('.letter__submit'),
+  submitLabel: contactForm.querySelector('.letter__submit-label'),
+};
+
+// Le navigateur accepte « nom@domaine » sans extension : on exige un point dans le domaine
+const EMAIL_RE = /^[^\s@]+@[^\s@.]+(\.[^\s@.]+)*\.[^\s@.]{2,}$/;
+
+function setInvalid(field, invalid) {
+  if (invalid) field.setAttribute('aria-invalid', 'true');
+  else field.removeAttribute('aria-invalid');
+}
+
+// Nom et message obligatoires ; au moins un moyen de réponse (e-mail ou WhatsApp), e-mail valide s'il est saisi
+function validateContact() {
+  const email = cf.email.value.trim();
+  const phone = cf.phone.value.trim();
+  const nameBad = !cf.name.value.trim();
+  const messageBad = !cf.message.value.trim();
+  let reach = '';
+  if (!email && !phone) reach = 'ct.errReach';
+  else if (email && !EMAIL_RE.test(email)) reach = 'ct.errEmail';
+
+  setInvalid(cf.name, nameBad);
+  setInvalid(cf.message, messageBad);
+  setInvalid(cf.email, reach !== '' && (reach === 'ct.errEmail' || !phone));
+  setInvalid(cf.phone, reach === 'ct.errReach');
+  cf.reachError.textContent = reach ? tr(reach) : '';
+  letterStatus.textContent = nameBad || messageBad ? tr('ct.errInvalid') : '';
+
+  const first = [cf.name, cf.email, cf.phone, cf.message].find((f) => f.getAttribute('aria-invalid') === 'true');
+  return first || null;
+}
+
+function setSending(sending) {
+  contactForm.classList.toggle('is-sending', sending);
+  cf.submit.disabled = sending;
+  cf.submitLabel.textContent = tr(sending ? 'ct.sending' : 'ct.send');
+}
+
+// Une fois une erreur affichée, elle se met à jour pendant la saisie
+contactForm.addEventListener('input', () => {
+  if (contactForm.classList.contains('was-validated')) validateContact();
+});
+
 contactForm.addEventListener('submit', async (e) => {
   e.preventDefault();
-  letterStatus.textContent = '';
+  if (cf.submit.disabled) return;
 
-  if (!contactForm.checkValidity()) {
-    contactForm.classList.add('was-validated');
-    letterStatus.textContent = tr('ct.errInvalid');
-    contactForm.querySelector(':invalid').focus();
+  contactForm.classList.add('was-validated');
+  const firstInvalid = validateContact();
+  if (firstInvalid) {
+    firstInvalid.focus();
     return;
   }
 
-  contactForm.classList.add('is-sending');
+  setSending(true);
   try {
     const res = await fetch('https://formsubmit.co/ajax/contact@regulus-studio.tech', {
       method: 'POST',
@@ -433,9 +500,10 @@ contactForm.addEventListener('submit', async (e) => {
     letterDone.hidden = false;
     letterDone.focus();
   } catch (err) {
+    // Le formulaire reste rempli pour pouvoir réessayer
     letterStatus.textContent = tr('ct.errSend');
   } finally {
-    contactForm.classList.remove('is-sending');
+    setSending(false);
   }
 });
 

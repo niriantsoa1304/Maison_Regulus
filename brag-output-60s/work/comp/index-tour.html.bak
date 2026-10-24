@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Maison Regulus — brag 60s</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=block" rel="stylesheet">
+<style>
+  :root { --night:#0B0F19; --gold:#C5A880; --ivory:#F4F4F0; --pale:#E9D7B4; --glow:#FFF4DD; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body { width:1920px; height:1080px; overflow:hidden; background:var(--night); }
+  body { font-family:Inter, sans-serif; color:var(--ivory); -webkit-font-smoothing:antialiased; }
+  #stage { position:relative; width:1920px; height:1080px; overflow:hidden;
+    background:radial-gradient(1200px 700px at 60% 35%, #141B33 0%, #0B0F19 70%); }
+  .layer { position:absolute; inset:0; }
+
+  /* sky camera (scenes 1–2) */
+  #sky { position:absolute; left:0; top:0; width:1440px; height:900px; transform-origin:0 0; }
+  #sky svg { width:1440px; height:900px; display:block; }
+  #flare { position:absolute; left:0; top:0; width:0; height:0; }
+  #flare .halo { position:absolute; border-radius:50%;
+    background:radial-gradient(circle, rgba(255,240,210,.75) 0%, rgba(197,168,128,.28) 32%, rgba(197,168,128,0) 70%); }
+  #flare svg { position:absolute; filter:drop-shadow(0 0 8px rgba(255,236,200,.95)); }
+
+  /* faint backdrop sky */
+  #back { opacity:0; }
+  #back svg { position:absolute; left:50%; top:50%; width:2100px; height:1312px; }
+
+  #s1cap { position:absolute; left:160px; bottom:120px; }
+  #s1cap .lab { font-size:17px; letter-spacing:.42em; color:var(--gold); font-weight:500; }
+  #s1cap .line { font-family:'Cormorant Garamond'; font-size:64px; line-height:1.1; margin-top:14px; color:var(--ivory); }
+  #s1cap .line i { color:var(--pale); }
+
+  #s2 { display:flex; flex-direction:column; align-items:center; padding-top:70px; }
+  #emblem { width:236px; height:306px; overflow:visible; }
+  .w-maison { font-family:'Cormorant Garamond'; font-weight:500; font-size:42px; letter-spacing:.62em; color:var(--gold); margin:26px 0 0 .62em; }
+  .w-regulus { font-family:'Cormorant Garamond'; font-weight:400; font-size:160px; line-height:1; letter-spacing:.12em; margin:4px 0 0 .12em; }
+  .w-sub { display:flex; align-items:center; gap:26px; margin-top:20px; font-size:20px; font-weight:500; letter-spacing:.42em; color:var(--gold); }
+  .w-sub .rule { width:150px; height:1px; background:linear-gradient(90deg, transparent, var(--gold)); }
+  .w-sub .rule.r { background:linear-gradient(90deg, var(--gold), transparent); }
+  .w-tag { font-family:'Cormorant Garamond'; font-style:italic; font-size:58px; color:var(--gold); margin-top:24px; }
+  .w-lead { font-size:25px; font-weight:300; color:rgba(244,244,240,.88); margin-top:14px; letter-spacing:.01em; }
+
+  /* the real site: a browser window that grows to full screen */
+  #win { position:absolute; overflow:hidden; background:#0E1322; }
+  .bar { display:flex; align-items:center; padding:0 18px; background:#121829; border-bottom:1px solid rgba(197,168,128,.18); position:relative; overflow:hidden; }
+  .dots i { display:inline-block; width:11px; height:11px; border-radius:50%; border:1px solid rgba(197,168,128,.55); margin-right:8px; }
+  .url { position:absolute; left:50%; top:8px; transform:translateX(-50%); width:420px; height:28px; border-radius:14px; background:#0B0F19;
+    display:flex; align-items:center; justify-content:center; font-size:14px; letter-spacing:.04em; color:rgba(244,244,240,.75); }
+  .url b { color:var(--gold); font-weight:500; margin-right:8px; font-size:12px; }
+  #view { position:relative; overflow:hidden; }
+  #view iframe { position:absolute; left:0; top:0; border:0; transform-origin:0 0; }
+
+  #s8 { display:flex; flex-direction:column; align-items:center; justify-content:center;
+    background:radial-gradient(900px 520px at 50% 52%, rgba(11,15,25,.85) 0%, rgba(11,15,25,.6) 45%, rgba(11,15,25,0) 75%); }
+  #emblem2 { width:150px; height:194px; overflow:visible; }
+  #s8 .big { font-family:'Cormorant Garamond'; font-size:92px; line-height:1.1; margin-top:44px; text-align:center; }
+  #s8 .big i { color:var(--gold); }
+  #s8 .site { margin-top:40px; font-size:24px; letter-spacing:.36em; color:var(--gold); font-weight:500; display:flex; align-items:center; gap:26px; }
+  #s8 .site .rule { width:110px; height:1px; background:linear-gradient(90deg, transparent, var(--gold)); }
+  #s8 .site .rule.r { background:linear-gradient(90deg, var(--gold), transparent); }
+  #s8 .offers { margin-top:22px; font-size:17px; letter-spacing:.3em; color:rgba(244,244,240,.7); }
+
+  /* the site's own cursor: glowing dot + gold ring */
+  #cursor { position:absolute; left:0; top:0; width:0; height:0; z-index:50; }
+  #cursor .ring { position:absolute; width:36px; height:36px; margin:-18px 0 0 -18px; border-radius:50%;
+    border:1px solid rgba(197,168,128,.85); box-shadow:0 0 14px rgba(197,168,128,.4), inset 0 0 10px rgba(197,168,128,.2); }
+  #cursor .dot { position:absolute; width:7px; height:7px; margin:-3.5px 0 0 -3.5px; border-radius:50%; background:#FFF4DD;
+    box-shadow:0 0 8px 2px rgba(255,236,200,.85), 0 0 18px 4px rgba(197,168,128,.45); }
+  #cursor .ripple { position:absolute; width:36px; height:36px; margin:-18px 0 0 -18px; border-radius:50%; border:1.5px solid var(--pale); }
+
+  #vignette { position:absolute; inset:0; pointer-events:none; z-index:60;
+    background:radial-gradient(ellipse at center, rgba(11,15,25,0) 55%, rgba(5,7,12,.5) 100%); }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="layer" id="back"></div>
+
+  <div class="layer" id="s1">
+    <div id="sky"></div>
+    <div id="s1cap"><p class="lab">REGULUS · α LEONIS</p><p class="line">L’étoile la plus brillante <i>du Lion.</i></p></div>
+  </div>
+
+  <div class="layer" id="s2">
+    <svg id="emblem" viewBox="-4 4 208 258">
+      <g stroke-linejoin="miter" stroke-linecap="square" fill="none" stroke="#C5A880">
+        <path class="d" pathLength="1" d="M0 110 L100 10 L200 110" stroke-width="3"/>
+        <path class="d" pathLength="1" d="M30 106 L100 36 L170 106" stroke-width="1.2" opacity=".75"/>
+        <path class="d" pathLength="1" d="M22 124 V258 H178 V124" stroke-width="3"/>
+        <path class="d" pathLength="1" d="M34 134 V246 H166 V134" stroke-width="1.2" opacity=".75"/>
+      </g>
+      <path id="emStar" d="M100 61 L101.95 74.05 L115 76 L101.95 77.95 L100 91 L98.05 77.95 L85 76 L98.05 74.05 Z" fill="#C5A880"/>
+      <path class="R" fill="#C5A880"/>
+    </svg>
+    <p class="w-maison">MAISON</p>
+    <p class="w-regulus">REGULUS</p>
+    <p class="w-sub"><span class="rule"></span><span>PORTFOLIOS &amp; SITES WEB</span><span class="rule r"></span></p>
+    <p class="w-tag">Beyond what’s possible.</p>
+    <p class="w-lead">Maison de création de sites web sur mesure et à votre image.</p>
+  </div>
+
+  <div class="layer" id="site">
+    <div id="win">
+      <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span class="url"><b>⌂</b>regulus-studio.tech</span></div>
+      <div id="view"><iframe id="f1" src="/index.html" width="1920" height="1080" scrolling="no"></iframe></div>
+    </div>
+  </div>
+
+  <div class="layer" id="s8">
+    <svg id="emblem2" viewBox="-4 4 208 258"></svg>
+    <p class="big">Votre projet sera<br>la <i>prochaine étoile.</i></p>
+    <p class="site"><span class="rule"></span>REGULUS-STUDIO.TECH<span class="rule r"></span></p>
+    <p class="offers">PORTFOLIOS · SITES VITRINES</p>
+  </div>
+
+  <div id="cursor"><div class="ripple"></div><div class="ring"></div><div class="dot"></div></div>
+  <div id="vignette"></div>
+</div>
+
+<script>
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const lerp = (a, b, k) => a + (b - a) * k;
+const prog = (t, a, b) => clamp((t - a) / (b - a));
+const eOut = k => 1 - Math.pow(1 - k, 3);
+const eIO = k => k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+const env = (t, a, b, fi = .4, fo = .4) => Math.min(eOut(prog(t, a, a + fi)), 1 - eIO(prog(t, b - fo, b)));
+const pulse = (t, a, w = .06, h = .1) => prog(t, a, a + w) * (1 - prog(t, a + w + h, a + w + h + .1));
+
+const REG = { x: 1079.7, y: 611.1 };
+window.DURATION = 60;
+
+let sky, skyLines, skyStars, skyMinor, backSvg, f1, d1, w1, Y = {}, lang = 'fr';
+
+async function setup() {
+  const svgText = await (await fetch('/assets/sky.svg')).text();
+  $('#sky').innerHTML = svgText;
+  sky = $('#sky svg');
+  sky.setAttribute('viewBox', '0 0 1440 900');
+  skyLines = $$('line', sky);
+  skyLines.forEach(l => { l.setAttribute('pathLength', 1); l.style.strokeDasharray = 1; l.setAttribute('stroke-opacity', '.75'); l.setAttribute('stroke-width', '1.3'); });
+  const circles = $$('circle', sky);
+  skyStars = circles.filter(c => +c.getAttribute('r') > 1.5 && Math.hypot(c.getAttribute('cx') - REG.x, c.getAttribute('cy') - REG.y) > 1);
+  skyMinor = circles.filter(c => +c.getAttribute('r') <= 1.5);
+  circles.filter(c => Math.hypot(c.getAttribute('cx') - REG.x, c.getAttribute('cy') - REG.y) < 1).forEach(c => c.remove());
+  $$('path', sky).forEach(p => p.remove());
+  const fl = document.createElement('div'); fl.id = 'flare';
+  fl.innerHTML = '<div class="halo"></div><svg viewBox="0 0 24 24"><path d="M12 0 L13.1 10.9 L24 12 L13.1 13.1 L12 24 L10.9 13.1 L0 12 L10.9 10.9 Z" fill="#FFF4DD"/></svg>';
+  $('#s1').appendChild(fl);
+
+  $('#back').innerHTML = svgText;
+  backSvg = $('#back svg');
+  backSvg.setAttribute('viewBox', '0 0 1440 900');
+
+  const em = await (await fetch('/assets/emblem-gold.svg')).text();
+  const rD = [...em.matchAll(/<path d="([^"]+)"/g)].map(m => m[1]).find(d => d.includes('Q'));
+  $('#emblem .R').setAttribute('d', rD);
+  $('#emblem2').innerHTML = $('#emblem').innerHTML;
+  await fetch('/assets/logo-en.svg');
+
+  f1 = $('#f1');
+  await new Promise(r => f1.contentDocument && f1.contentDocument.readyState === 'complete' ? r() : f1.addEventListener('load', r, { once: true }));
+  d1 = f1.contentDocument; w1 = f1.contentWindow;
+  w1.setLang('fr');
+  d1.documentElement.classList.remove('has-reveal');
+  const st = d1.createElement('style');
+  st.textContent = `*,*::before,*::after{animation:none!important;transition:none!important}
+    html{scroll-behavior:auto!important}
+    .cursor,.contact-fab,.to-top{display:none!important}
+    .logo-anim__spark{opacity:0}
+    .letter__constellation .draw{stroke-dasharray:1;stroke-dashoffset:var(--dd,0)}`;
+  d1.head.appendChild(st);
+  await d1.fonts.ready;
+  await Promise.all([...d1.images].map(i => (i.loading = 'eager', i.decode().catch(() => {}))));
+  const top = s => d1.querySelector(s).getBoundingClientRect().top + w1.scrollY;
+  Y.about = Math.round(top('#a-propos'));
+  Y.svcA = Math.round(top('.services__head') - 130);
+  Y.svcB = Math.round(top('.services__after') + 110 - 1080);
+  Y.work = Math.round(top('#realisations') + 40);
+  const L = d1.querySelector('.letter');
+  Y.contact = Math.round(top('.letter') - (1080 - L.offsetHeight) / 2 + 12);
+  Y.letterH = L.offsetHeight;
+  await document.fonts.ready;
+}
+
+function show(el, o) { el.style.opacity = o; el.style.visibility = o <= 0.001 ? 'hidden' : 'visible'; }
+
+function drawCursor(c) {
+  const el = $('#cursor');
+  el.style.transform = `translate(${c.x}px, ${c.y}px)`;
+  show(el, c.o);
+  $('.ring', el).style.transform = `scale(${1 + .6 * c.hover - .3 * c.down})`;
+  $('.ring', el).style.background = `rgba(197,168,128,${.1 * c.hover})`;
+  $('.dot', el).style.transform = `scale(${1 - .4 * c.hover})`;
+  const r = $('.ripple', el);
+  if (c.ripple >= 0 && c.ripple <= 1) { r.style.opacity = 1 - c.ripple; r.style.transform = `scale(${1 + 2.2 * eOut(c.ripple)})`; }
+  else r.style.opacity = 0;
+}
+function pathAt(t, pts) {
+  if (t <= pts[0].t) return pts[0];
+  for (let i = 1; i < pts.length; i++) if (t <= pts[i].t) {
+    const k = eIO(prog(t, pts[i - 1].t, pts[i].t));
+    return { x: lerp(pts[i - 1].x, pts[i].x, k), y: lerp(pts[i - 1].y, pts[i].y, k) };
+  }
+  return pts[pts.length - 1];
+}
+const typed = (t, a, b, s) => s.slice(0, Math.round(s.length * prog(t, a, b)));
+// fade/slide an element of the site in, as its own reveal would
+function rise(el, t, at, dy = 24, dur = .8) {
+  const k = eOut(prog(t, at, at + dur));
+  el.style.opacity = k; el.style.transform = dy ? `translateY(${dy * (1 - k)}px)` : '';
+  return k;
+}
+function ripple(t, clicks) {
+  for (const a of clicks) if (t >= a && t < a + .55) return prog(t, a, a + .55);
+  return -1;
+}
+
+async function render(t) {
+  const c = { x: 960, y: 540, o: 0, hover: 0, down: 0, ripple: -1 };
+
+  /* ---------- 1–2: the sky, then the dive into Regulus ---------- */
+  const s1o = 1 - prog(t, 5.9, 6.5);
+  show($('#s1'), s1o);
+  if (s1o > 0) {
+    const emStar = $('#emStar').getBoundingClientRect();
+    const target = { x: emStar.left + emStar.width / 2, y: emStar.top + emStar.height / 2 };
+    const start = { x: 1402, y: 868 };
+    const z = eIO(prog(t, 5.35, 6.35));
+    const s = 1.25 * Math.pow(14 / 1.25, z) * (1 + .04 * prog(t, 0, 5.4));
+    const R = { x: lerp(start.x, target.x, eOut(z)), y: lerp(start.y, target.y, eOut(z)) };
+    $('#sky').style.transform = `translate(${R.x}px, ${R.y}px) scale(${s}) translate(${-REG.x}px, ${-REG.y}px)`;
+    sky.style.opacity = 1 - prog(t, 5.6, 6.15);
+    skyMinor.forEach((m, i) => m.style.opacity = prog(t, (i % 9) * .08, (i % 9) * .08 + 1));
+    skyStars.forEach((m, i) => m.style.opacity = prog(t, .2 + i * .1, .8 + i * .1));
+    skyLines.forEach((l, i) => l.style.strokeDashoffset = 1 - eIO(prog(t, .4 + i * .26, 1.1 + i * .26)));
+    const fl = $('#flare');
+    fl.style.transform = `translate(${R.x}px, ${R.y}px)`;
+    const ign = eOut(prog(t, 2.4, 3.4));
+    const pl = 1 + .06 * Math.sin(t * 3.1);
+    const size = lerp(14, 46, ign) * pl * lerp(1, .72, z);
+    const fsvg = $('svg', fl);
+    fsvg.style.width = fsvg.style.height = size + 'px';
+    fsvg.style.left = fsvg.style.top = -size / 2 + 'px';
+    fsvg.style.transform = `rotate(${45 * eIO(prog(t, 5.4, 6.3))}deg)`;
+    const hs = lerp(40, 190, ign) * pl * lerp(1, .9, z);
+    const h = $('.halo', fl); h.style.width = h.style.height = hs + 'px'; h.style.left = h.style.top = -hs / 2 + 'px';
+    fl.style.opacity = lerp(.55, 1, ign) * (1 - prog(t, 6.25, 6.5));
+    show($('#s1cap'), env(t, 1.6, 5.45, .6, .4));
+    $('#s1cap').style.transform = `translateY(${18 * (1 - eOut(prog(t, 1.6, 2.4)))}px)`;
+  }
+
+  const s2o = env(t, 5.9, 12.2, .3, .45);
+  show($('#s2'), s2o);
+  if (s2o > 0) {
+    $$('#emblem .d').forEach((p, i) => p.style.strokeDashoffset = 1 - eIO(prog(t, 5.95 + i * .16, 7.0 + i * .16)));
+    $('#emblem .R').style.opacity = eOut(prog(t, 6.9, 7.5));
+    $('#emStar').style.opacity = prog(t, 6.25, 6.45);
+    ['.w-maison', '.w-regulus', '.w-sub', '.w-tag', '.w-lead'].forEach((s, i) => rise($(s, $('#s2')), t, [7.1, 7.3, 7.7, 8.3, 9.0][i], 16, .8));
+    $('.w-regulus').style.letterSpacing = `${lerp(.32, .12, eOut(prog(t, 7.3, 8.5)))}em`;
+    $('#s2').style.transform = `scale(${1 + .025 * prog(t, 6.5, 12.2)})`;
+  }
+
+  /* ---------- backdrop sky ---------- */
+  const bo = .45 * prog(t, 11.8, 12.8) + .2 * prog(t, 55.4, 56.2);
+  show($('#back'), bo);
+  if (bo > 0) backSvg.style.transform = `translate(-50%, -50%) translate(${-70 + 40 * prog(t, 12, 60)}px, ${14 - 26 * prog(t, 12, 60)}px)`;
+
+  /* ---------- the real site ---------- */
+  const so = Math.min(env(t, 11.9, 55.7, .6, .45),
+    1 - Math.min(1 - prog(t, 29.75, 30.15), prog(t, 30.25, 30.65)),   // dip: about → services
+    1 - Math.min(1 - prog(t, 38.95, 39.35), prog(t, 39.45, 39.85)),   // dip: services → work
+    1 - Math.min(1 - prog(t, 46.95, 47.35), prog(t, 47.45, 47.85)));  // dip: work → contact
+  show($('#site'), so);
+  if (so > 0) {
+    // window: rises, then grows to full screen at 17.6
+    const g = eIO(prog(t, 17.6, 18.9));
+    const W = lerp(1340, 1920, g), sc = W / 1920, bar = 44 * (1 - g);
+    const H = 1080 * sc;
+    const L = (1920 - W) / 2, Tp = (1080 - H - bar) / 2;
+    const win = $('#win');
+    Object.assign(win.style, { left: L + 'px', top: Tp + 'px', width: W + 'px', height: H + bar + 'px',
+      borderRadius: 12 * (1 - g) + 'px', border: g < 1 ? `1px solid rgba(197,168,128,${.35 * (1 - g)})` : 'none',
+      boxShadow: g < 1 ? `0 40px 120px rgba(0,0,0,${.6 * (1 - g)}), 0 0 80px rgba(197,168,128,${.08 * (1 - g)})` : 'none' });
+    $('.bar', win).style.height = bar + 'px';
+    $('#view').style.height = H + 'px';
+    f1.style.transform = `scale(${sc})`;
+    const up = eOut(prog(t, 11.9, 12.9));
+    win.style.transform = `perspective(2200px) translateY(${90 * (1 - up)}px) rotateX(${10 * (1 - up)}deg) scale(${lerp(.94, 1, up)})`;
+    const toScreen = (x, y) => ({ x: L + x * sc, y: Tp + bar + y * sc });
+    const at = (sel, fx = .5, fy = .5) => { const r = d1.querySelector(sel).getBoundingClientRect(); return toScreen(r.left + r.width * fx, r.top + r.height * fy); };
+
+    // scroll position for this moment
+    let sy = 0;
+    if (t < 30.2) sy = Y.about * eIO(prog(t, 18.9, 20.6));
+    else if (t < 39.4) sy = lerp(Y.svcA, Y.svcB, eIO(prog(t, 32.6, 35.0)));
+    else if (t < 47.4) sy = Y.work;
+    else sy = Y.contact;
+    w1.scrollTo(0, sy);
+
+    // FR → EN → FR
+    const want = t >= 14.15 && t < 16.85 ? 'en' : 'fr';
+    if (want !== lang) {
+      lang = want; w1.setLang(lang);
+      const img = d1.querySelector('.nav__brand img');
+      await img.decode().catch(() => {});
+    }
+    const hero = d1.querySelectorAll('.hero__body > *');
+    // a soft swap: content dims for a moment around each language change
+    const sw = Math.max(pulse(t, 14.05, .1, .02), pulse(t, 16.75, .1, .02));
+    hero.forEach(el => el.style.opacity = 1 - .6 * sw);
+
+    if (t < 19) {
+      const pts = [{ t: 13.0, x: 1500, y: 700 }, { t: 13.95, ...at('[data-lang="en"]') }, { t: 16.4, ...at('[data-lang="en"]') }, { t: 16.7, ...at('[data-lang="fr"]') }];
+      const p = pathAt(t, pts); c.x = p.x; c.y = p.y;
+      c.o = env(t, 13.0, 17.4, .3, .4);
+      c.hover = Math.max(prog(t, 13.8, 13.95), 0) * (1 - prog(t, 16.4, 16.5)) + prog(t, 16.6, 16.7) * (1 - prog(t, 17.0, 17.2));
+      c.down = Math.max(pulse(t, 14.05), pulse(t, 16.75));
+      c.ripple = ripple(t, [14.1, 16.8]);
+    }
+
+    /* about: the new animated logo draws itself, then the text settles */
+    if (t >= 18 && t < 30.3) {
+      const a = 19.9;
+      const logo = d1.querySelector('.about__logo');
+      logo.querySelectorAll('.draw').forEach((p, i) => { p.style.strokeDasharray = 1; p.style.strokeDashoffset = 1 - eIO(prog(t, a + [0, .2, .5, .7][i], a + 1.6 + [0, .2, .5, .7][i])); });
+      const r = logo.querySelector('.logo-anim__r'); rise(r, t, a + 1.1, 10, 1.1);
+      const star = logo.querySelector('.logo-anim__star');
+      const ks = eOut(prog(t, a + 1.5, a + 2.5));
+      star.style.opacity = ks; star.style.transformBox = 'fill-box'; star.style.transformOrigin = 'center';
+      const tw = (Math.sin((t - a) / 3.4 * Math.PI * 2 - Math.PI / 2) + 1) / 2;
+      star.style.transform = `scale(${ks * (.9 + .35 * tw)}) rotate(${8 * tw}deg)`;
+      [['.logo-anim__maison', 1.7], ['.logo-anim__name', 1.85], ['.logo-anim__sub', 2.0]].forEach(([s, d]) => {
+        const el = logo.querySelector(s); rise(el, t, a + d, 12, 1.1);
+        if (s === '.logo-anim__maison') el.style.letterSpacing = `${lerp(1.2, .7, eOut(prog(t, a + d, a + d + 1.6)))}em`;
+      });
+      const fl = logo.querySelector('.logo-anim');
+      fl.style.transform = `translateY(${-10 * (1 - Math.cos((t - a) / 7 * Math.PI * 2)) / 2}px)`;
+      const gl = logo.querySelector('.logo-anim__glow'), gk = (1 - Math.cos((t - a) / 6 * Math.PI * 2)) / 2;
+      gl.style.opacity = (.75 + .25 * gk) * eOut(prog(t, a, a + 1.5)); gl.style.transform = `scale(${.96 + .08 * gk})`;
+      // fireflies: the site's sparkRise keyframes, played on the video clock
+      logo.querySelectorAll('.logo-anim__spark').forEach(sp => {
+        const d = parseFloat(sp.style.getPropertyValue('--d')), T = parseFloat(sp.style.getPropertyValue('--t'));
+        const lt = t - a - 1.2 - d;
+        if (lt < 0) { sp.style.opacity = 0; return; }
+        const k = (lt % T) / T;
+        const o = k < .3 ? k / .3 : k < .7 ? lerp(1, .8, (k - .3) / .4) : lerp(.8, 0, (k - .7) / .3);
+        const e = k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+        sp.style.opacity = o;
+        sp.style.transform = `translateY(${lerp(14, -36, e)}px) scale(${lerp(.6, 1, e)}) rotate(${45 * e}deg)`;
+      });
+      d1.querySelectorAll('.about__content [data-reveal]').forEach((el, i) => rise(el, t, 20.4 + i * .35, 28, .9));
+    }
+
+    /* services: two cards, the cursor visits each */
+    if (t >= 30 && t < 39.5) {
+      d1.querySelectorAll('.services__head [data-reveal]').forEach((el, i) => rise(el, t, 30.5 + i * .25, 24, .9));
+      const cards = [...d1.querySelectorAll('.service')];
+      const hov = [prog(t, 35.6, 35.9) * (1 - prog(t, 36.9, 37.2)), prog(t, 37.2, 37.5)];
+      cards.forEach((el, i) => {
+        const k = eOut(prog(t, 31.5 + i * .3, 32.6 + i * .3));
+        el.style.opacity = k;
+        el.style.transform = `translateY(${40 * (1 - k) - 8 * eOut(hov[i])}px)`;
+        el.style.borderColor = hov[i] > 0 ? `rgba(197,168,128,${.4 + .6 * hov[i]})` : '';
+        el.style.boxShadow = hov[i] > 0 ? `0 30px 60px -30px rgba(0,0,0,${.7 * hov[i]}), 0 0 60px -20px rgba(197,168,128,${.35 * hov[i]})` : '';
+        el.querySelectorAll('.draw').forEach(dp => { dp.style.strokeDasharray = 1; dp.style.strokeDashoffset = 1 - eIO(prog(t, 31.9 + i * .3, 33.8 + i * .3)); });
+        el.querySelectorAll('.service__list li').forEach((li, j) => rise(li, t, 32.8 + i * .3 + j * .12, 0, .5));
+      });
+      rise(d1.querySelector('.services__after'), t, 34.8, 16, .8);
+      const pts = [{ t: 35.0, x: 700, y: 1000 }, { t: 35.7, ...at('#portfolios .service__title') }, { t: 36.9, ...at('#portfolios .service__title') }, { t: 37.4, ...at('#site-vitrine .service__title') }];
+      const p = pathAt(t, pts); c.x = p.x; c.y = p.y;
+      c.o = env(t, 35.0, 38.9, .3, .4);
+      c.hover = .6 * Math.max(...hov);
+    }
+
+    /* réalisations */
+    if (t >= 39 && t < 47.5) {
+      d1.querySelectorAll('.work__head [data-reveal]').forEach((el, i) => rise(el, t, 39.6 + i * .25, 24, .9));
+      const vis = d1.querySelector('.project__visual');
+      const kv = eOut(prog(t, 40.2, 41.3));
+      vis.style.opacity = kv; vis.style.transform = `translateX(${-50 * (1 - kv)}px)`;
+      d1.querySelectorAll('.project__info [data-reveal]').forEach((el, i) => rise(el, t, 40.6 + i * .22, 22, .8));
+      d1.querySelectorAll('.project__tags li').forEach((li, j) => rise(li, t, 41.6 + j * .14, 0, .45));
+      rise(d1.querySelector('.work__next'), t, 42.6, 20, .9);
+      const btn = d1.querySelector('.project__info .btn');
+      const pts = [{ t: 43.8, x: 1700, y: 980 }, { t: 44.6, ...at('.project__info .btn') }];
+      const p = pathAt(t, pts); c.x = p.x; c.y = p.y;
+      c.o = env(t, 43.8, 46.7, .3, .4);
+      const hv = prog(t, 44.5, 44.7) * (1 - prog(t, 46.0, 46.3));
+      c.hover = hv;
+      btn.style.background = hv ? `rgba(197,168,128,${.14 * hv})` : '';
+    }
+
+    /* contact: write to the house */
+    if (t >= 47 && t < 56) {
+      const letterEl = d1.querySelector('.letter');
+      const form = d1.querySelector('#contact-form'), done = d1.querySelector('.letter__done');
+      d1.querySelectorAll('.contact__intro [data-reveal]').forEach((el, i) => rise(el, t, 47.6 + i * .2, 22, .8));
+      rise(letterEl, t, 47.8, 30, 1.0);
+      const sent = t >= 53.45;
+      form.hidden = sent; done.hidden = !sent;
+      letterEl.style.minHeight = Y.letterH + 'px';
+      Object.assign(letterEl.style, sent ? { display: 'flex', flexDirection: 'column', justifyContent: 'center' } : { display: '', flexDirection: '', justifyContent: '' });
+      if (!sent) {
+        const name = d1.querySelector('#cf-name'), mail = d1.querySelector('#cf-email'), msg = d1.querySelector('#cf-message');
+        name.value = typed(t, 48.9, 49.6, 'Hery Rakoto');
+        mail.value = typed(t, 49.9, 50.6, 'hery@exemple.mg');
+        msg.value = typed(t, 51.3, 52.5, 'Un site vitrine pour ma boulangerie.');
+        d1.querySelectorAll('input[name="project_type"]')[t >= 50.95 ? 1 : 0].checked = true;
+        const focus = t >= 48.8 && t < 49.75 ? name : t >= 49.75 && t < 50.7 ? mail : t >= 51.2 && t < 52.65 ? msg : null;
+        if (focus) focus.focus({ preventScroll: true }); else d1.activeElement && d1.activeElement.blur();
+        form.classList.toggle('is-sending', t >= 53.05);
+        d1.querySelector('.letter__submit').style.transform = `scale(${1 - .04 * pulse(t, 53.0)})`;
+        const near = sel => at(sel, .3, .6);
+        window._s7 = [
+          { t: 48.2, x: 1500, y: 1000 }, { t: 48.8, ...near('#cf-name') }, { t: 49.7, ...near('#cf-name') },
+          { t: 49.85, ...near('#cf-email') }, { t: 50.6, ...near('#cf-email') },
+          { t: 50.85, ...near('.chip:nth-child(2)') }, { t: 51.05, ...near('.chip:nth-child(2)') },
+          { t: 51.25, ...near('#cf-message') }, { t: 52.5, ...near('#cf-message') },
+          { t: 52.95, ...near('.letter__submit') },
+        ];
+      }
+      const p = pathAt(t, window._s7); c.x = p.x; c.y = p.y;
+      c.o = env(t, 48.2, 53.7, .3, .3);
+      c.hover = Math.max(prog(t, 50.75, 50.85) * (1 - prog(t, 51.05, 51.15)), prog(t, 52.75, 52.95));
+      c.down = Math.max(pulse(t, 50.92), pulse(t, 53.0));
+      c.ripple = ripple(t, [50.95, 53.03]);
+      if (sent) {
+        d1.querySelectorAll('.letter__constellation .draw').forEach(dp => dp.style.setProperty('--dd', 1 - eIO(prog(t, 53.5, 54.4))));
+        rise(done, t, 53.45, 14, .6);
+      }
+    }
+  }
+
+  /* ---------- 8: the next star ---------- */
+  const s8o = env(t, 55.4, 99, .5, .4);
+  show($('#s8'), s8o);
+  if (s8o > 0) {
+    $$('#emblem2 .d').forEach((p, i) => p.style.strokeDashoffset = 1 - eIO(prog(t, 55.45 + i * .12, 56.4 + i * .12)));
+    $('#emblem2 .R').style.opacity = eOut(prog(t, 56.1, 56.6));
+    $('#emblem2 path:not(.d):not(.R)').style.opacity = eOut(prog(t, 56.3, 56.7));
+    ['.big', '.site', '.offers'].forEach((s, i) => rise($(s, $('#s8')), t, [55.8, 56.5, 56.8][i], 22, .9));
+    $('#s8').style.transform = `scale(${1.02 - .02 * eOut(prog(t, 55.4, 60))})`;
+  }
+
+  drawCursor(c);
+}
+
+window.ready = setup().then(() => render(0)).then(() => true);
+window.render = render;
+</script>
+</body>
+</html>

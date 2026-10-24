@@ -792,36 +792,27 @@ a { color: inherit; }
   color: var(--ivory-85);
 }
 
-.pledges {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 28px 40px;
+/* Phrase de conclusion, en écho au titre */
+.about__closing {
+  position: relative;
   max-width: 760px;
-  margin: 44px 0 48px;
-  padding: 32px 0 0;
-  list-style: none;
+  margin: 36px 0 44px;
+  padding: 28px 0 0;
   border-top: 1px solid var(--gold-line-soft);
-}
-.pledge { display: flex; gap: 16px; }
-.pledge__num {
-  flex: none;
-  min-width: 28px;
   font-family: var(--serif);
-  font-size: 22px;
-  line-height: 1;
+  font-style: italic;
+  font-size: clamp(22px, 2vw, 28px);
+  line-height: 1.35;
   color: var(--gold);
+  text-wrap: balance;
 }
-.pledge__body { display: flex; flex-direction: column; gap: 6px; }
-.pledge__title {
-  font-family: var(--serif);
-  font-size: 22px;
-  line-height: 1.1;
-}
-.pledge__text {
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 1.6;
-  color: var(--ivory-65);
+.about__closing::before {
+  content: "";
+  position: absolute;
+  top: -6px; left: 0;
+  width: 11px; height: 11px;
+  background: var(--gold);
+  clip-path: polygon(50% 0, 56% 44%, 100% 50%, 56% 56%, 50% 100%, 44% 56%, 0 50%, 44% 44%);
 }
 
 /* ---------- Apparition au défilement ---------- */
@@ -838,6 +829,7 @@ a { color: inherit; }
 .about__content [data-reveal]:nth-child(5) { transition-delay: .32s; }
 .about__content [data-reveal]:nth-child(6) { transition-delay: .40s; }
 .about__content [data-reveal]:nth-child(7) { transition-delay: .48s; }
+.about__content [data-reveal]:nth-child(8) { transition-delay: .56s; }
 
 /* =========================================================
    SERVICES
@@ -1028,9 +1020,9 @@ a { color: inherit; }
 .service__list {
   align-self: stretch;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px 28px;
-  max-width: 560px;
+  grid-template-columns: minmax(0, 1fr); /* une ligne par élément */
+  gap: 12px;
+  max-width: 440px;
   width: 100%;
   margin: 24px auto 0;
   padding: 22px 0 0;
@@ -1299,16 +1291,30 @@ a { color: inherit; }
   font-size: 20px;
   color: var(--gold);
 }
+.project__story { margin-top: 22px; display: grid; gap: 12px; }
 .project__desc {
-  margin: 22px 0 0;
+  margin: 0;
   font-size: 16px;
   font-weight: 300;
-  line-height: 1.75;
+  line-height: 1.7;
   color: var(--ivory-85);
-  text-align: justify;
-  -webkit-hyphens: auto;
-  hyphens: auto;
+  text-align: left;
+  -webkit-hyphens: manual;
+  hyphens: manual;
 }
+.project__desc strong {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--gold);
+}
+.project__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.project__actions .btn { padding: 18px 20px; letter-spacing: .1em; }
 .project__tags {
   display: flex;
   flex-wrap: wrap;
@@ -1592,19 +1598,34 @@ a { color: inherit; }
   gap: 0 32px;
 }
 
-/* ---------- Champs à étiquette flottante ---------- */
+/* ---------- Champs : intitulé toujours visible au-dessus ---------- */
 
 .field {
   position: relative;
-  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 22px;
 }
+/* Même style que « Faisons connaissance », en plus petit ; ivoire à 78 % : ≈ 9:1 sur le bleu nuit */
+.field label {
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(244, 244, 240, .78);
+  transition: color .35s ease;
+}
+.field label em { font-style: normal; color: var(--gold); }
+.field:focus-within label { color: var(--gold); }
+
 .field input,
 .field textarea {
   display: block;
   width: 100%;
-  padding: 26px 0 10px;
+  padding: 8px 0 10px;
   border: 0;
-  border-bottom: 1px solid rgba(244, 244, 240, .2);
+  border-bottom: 1px solid rgba(244, 244, 240, .28);
   border-radius: 0;
   background: transparent;
   color: var(--ivory);
@@ -1613,30 +1634,9 @@ a { color: inherit; }
   transition: border-color .4s ease;
 }
 .field textarea { resize: vertical; min-height: 120px; }
-.field label {
-  position: absolute;
-  left: 0; top: 26px;
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-size: 16px;
-  font-weight: 300;
-  color: rgba(244, 244, 240, .55);
-  pointer-events: none;
-  transform-origin: left top;
-  transition: transform .45s var(--ease), color .35s ease, letter-spacing .45s var(--ease);
-}
-.field label em { font-style: normal; color: var(--gold); }
-.field input:focus + label,
-.field input:not(:placeholder-shown) + label,
-.field textarea:focus + label,
-.field textarea:not(:placeholder-shown) + label {
-  transform: translateY(-22px) scale(.72);
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--gold);
-}
+/* Exemple dans le message : gris clair ≈ 5.5:1 sur le fond */
+.field textarea::placeholder { color: rgba(244, 244, 240, .58); opacity: 1; }
+
 /* Soulignement doré qui se déploie depuis le centre */
 .field::after {
   content: "";
@@ -1648,7 +1648,6 @@ a { color: inherit; }
   transition: transform .6s var(--ease);
 }
 .field:focus-within::after { transform: scaleX(1); }
-.field textarea + label { top: 26px; }
 .field--area::after { bottom: 6px; }
 
 .field input:-webkit-autofill {
@@ -1657,9 +1656,24 @@ a { color: inherit; }
   caret-color: var(--ivory);
 }
 
+/* Aide et erreur sous les champs e-mail / WhatsApp */
+.field__help {
+  margin: 12px 0 0;
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(244, 244, 240, .72);
+}
+.field__error {
+  margin: 6px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #E9998F;
+}
+.field__error:empty { margin: 0; }
+
 /* Erreurs : seulement après une tentative d'envoi */
-.letter__form.was-validated .field :invalid { border-bottom-color: #E0857A; }
-.letter__form.was-validated .field :invalid + label { color: #E0857A; }
+.field [aria-invalid="true"] { border-bottom-color: #E9998F; }
+.field:has([aria-invalid="true"]) label { color: #E9998F; }
 
 /* ---------- Choix du type de projet ---------- */
 
@@ -1734,14 +1748,15 @@ a { color: inherit; }
 }
 .letter__form.is-sending .letter__spinner { display: inline-block; }
 .letter__form.is-sending .letter__arrow { display: none; }
-.letter__form.is-sending .letter__submit { pointer-events: none; opacity: .85; }
+.letter__submit:disabled { cursor: progress; opacity: .85; }
+.letter__submit:disabled::before { transform: translateY(101%); }
 
 .letter__status {
   margin: 18px 0 0;
   min-height: 1.5em;
   font-size: 14px;
   line-height: 1.6;
-  color: #E0857A;
+  color: #E9998F;
 }
 .letter__status:empty { margin: 0; min-height: 0; }
 .letter__status a { color: var(--gold); }
@@ -2395,9 +2410,6 @@ body.footer-in-view .to-top { opacity: 0; visibility: hidden; transform: transla
 @media (max-width: 1279px) {
   .reg-label { display: none; }
 }
-@media (min-width: 961px) and (max-width: 1279px) {
-  .service__list { grid-template-columns: minmax(0, 1fr); max-width: 400px; }
-}
 
 /* Ordinateur : ciel légèrement flou pour donner de la profondeur ; Regulus reste net */
 @media (min-width: 961px) {
@@ -2543,10 +2555,12 @@ body.footer-in-view .to-top { opacity: 0; visibility: hidden; transform: transla
   .work__head .eyebrow,
   .project__meta,
   .project__tags { justify-content: center; }
-  .about__title, .about__text,
+  .about__title, .about__text, .about__closing,
   .work__title,
   .project__title, .project__role, .project__desc { text-align: center; }
-  .about__text { margin-left: auto; margin-right: auto; }
+  .project__actions { justify-content: center; }
+  .about__text, .about__closing { margin-left: auto; margin-right: auto; }
+  .about__closing::before { left: 50%; transform: translateX(-50%); }
   .about__content > div:last-child,
   .project__info > div:last-child { text-align: center; }
   .work__next { flex-direction: column; gap: 18px; }
@@ -2584,11 +2598,10 @@ body.footer-in-view .to-top { opacity: 0; visibility: hidden; transform: transla
 
   /* Le justifié crée de grands blancs sur une colonne étroite */
   .about__text, .project__desc { text-align: center; -webkit-hyphens: manual; hyphens: manual; }
+  .project__actions { flex-direction: column; align-items: stretch; }
   .channel__value { font-size: 19px; }
   .channel { gap: 14px; }
   .footer__bottom { flex-direction: column; align-items: flex-start; }
-  .pledges { grid-template-columns: 1fr; gap: 24px; }
-  .service__list { grid-template-columns: 1fr; }
   .about__text { font-size: 16px; }
   .offer__title { font-size: 30px; }
 }
